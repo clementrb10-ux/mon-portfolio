@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Votre Développeur Web | Sites pour Artisans & Commerçants</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+
+/* ── RESET & BASE ────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --ink:    #0d1b2a;
+  --cream:  #f0f7ff;
+  --warm:   #cfe8fa;
+  --rust:   #0ea5e9;
+  --gold:   #f97316;
+  --muted:  #4a6580;
+  --white:  #ffffff;
+  --indigo: #6366f1;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* Ambient glow blobs */
+body::before {
+  content:'';
+  position: fixed;
+  top: -30vh; left: -10vw;
+  width: 70vw; height: 70vh;
+  background: radial-gradient(ellipse, rgba(14,165,233,.13) 0%, transparent 65%);
+  pointer-events: none; z-index: 0;
+}
+
+body::after {
+  content:'';
+  position: fixed;
+  bottom: -20vh; right: -10vw;
+  width: 60vw; height: 60vh;
+  background: radial-gradient(ellipse, rgba(99,102,241,.1) 0%, transparent 65%);
+  pointer-events: none; z-index: 0;
+}
+
+/* ── ANIMATIONS ──────────────────────────────────────────────── */
+@keyframes fadeUp  { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+@keyframes fadeIn  { from { opacity:0; } to { opacity:1; } }
+@keyframes slideR  { from { opacity:0; transform:translateX(40px);} to { opacity:1; transform:none;} }
+@keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+/* ── NAV ─────────────────────────────────────────────────────── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:200;
+  padding: 1.1rem 6%;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(240,247,255,.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(14,165,233,.18);
+}
+
+.nav-logo {
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem; font-weight:900;
+  color:var(--rust); letter-spacing:-.5px;
+  text-decoration:none;
+}
+
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a {
+  text-decoration:none; color:var(--ink);
+  font-size:.8rem; font-weight:500;
+  letter-spacing:.1em; text-transform:uppercase;
+  transition:color .2s;
+}
+.nav-links a:hover { color:var(--rust); }
+
+.nav-cta {
+  background:var(--rust) !important; color:var(--white) !important;
+  padding:.55rem 1.2rem;
+}
+.nav-cta:hover { background:var(--ink) !important; }
+
+/* ── HERO ─────────────────────────────────────────────────────── */
+.hero {
+  min-height:100vh;
+  display:grid; grid-template-columns:1fr 1fr;
+  align-items:center; gap:4rem;
+  padding:9rem 6% 5rem;
+  position:relative; overflow:hidden;
+}
+
+.hero-bg-word {
+  position:absolute; bottom:-3rem; right:-2rem;
+  font-family:'Playfair Display',serif;
+  font-size:22vw; font-weight:900; font-style:italic;
+  color:var(--warm); line-height:1;
+  pointer-events:none; user-select:none; z-index:0;
+  animation: fadeIn 1.2s .5s ease both;
+  background: linear-gradient(135deg, var(--warm), rgba(99,102,241,.15));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-content { position:relative; z-index:1; }
+
+.hero-badge {
+  display:inline-block;
+  background: linear-gradient(90deg, var(--rust), var(--indigo));
+  color:var(--white);
+  font-size:.68rem; font-weight:500;
+  letter-spacing:.18em; text-transform:uppercase;
+  padding:.4rem 1rem; margin-bottom:1.6rem;
+  animation: fadeUp .8s ease both;
+}
+
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.6rem,4.5vw,4.8rem);
+  font-weight:900; line-height:1.06;
+  margin-bottom:1.6rem;
+  animation: fadeUp .8s .1s ease both;
+}
+.hero h1 em {
+  font-style:italic;
+  background: linear-gradient(90deg, var(--rust) 0%, var(--indigo) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-desc {
+  font-size:1rem; font-weight:300; line-height:1.85;
+  color:var(--muted); max-width:460px;
+  margin-bottom:2.4rem;
+  animation: fadeUp .8s .2s ease both;
+}
+
+.hero-btns {
+  display:flex; gap:1rem; flex-wrap:wrap;
+  animation: fadeUp .8s .3s ease both;
+}
+
+.btn-dark {
+  background: linear-gradient(90deg, var(--ink) 0%, #1e3a5f 100%);
+  color:var(--cream);
+  padding:.95rem 2rem; text-decoration:none;
+  font-size:.88rem; font-weight:500; letter-spacing:.03em;
+  transition:all .25s;
+  display:inline-flex; align-items:center; gap:.5rem;
+}
+.btn-dark:hover {
+  background: linear-gradient(90deg, var(--rust) 0%, var(--indigo) 100%);
+  transform:translateY(-3px);
+  box-shadow:0 10px 28px rgba(14,165,233,.35);
+}
+
+.btn-outline {
+  border:1.5px solid var(--ink); color:var(--ink);
+  padding:.95rem 2rem; text-decoration:none;
+  font-size:.88rem; font-weight:500; letter-spacing:.03em;
+  transition:all .25s;
+}
+.btn-outline:hover { background:var(--ink); color:var(--cream); }
+
+.hero-right {
+  position:relative; z-index:1;
+  display:flex; flex-direction:column; gap:1.2rem;
+  animation: slideR 1s .4s ease both;
+}
+
+.card-main {
+  background:var(--white);
+  border:1px solid var(--warm);
+  padding:2.2rem;
+  box-shadow: 12px 12px 0 var(--warm), 22px 22px 0 rgba(14,165,233,.12);
+}
+
+.card-label {
+  font-size:.72rem; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:.6rem;
+}
+.card-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem; font-weight:700;
+  margin-bottom:.4rem;
+}
+.card-sub { font-size:.85rem; color:var(--muted); line-height:1.6; }
+
+.stats-row {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:1rem; margin-top:1.6rem;
+}
+.stat { border-left:3px solid var(--rust); padding-left:.9rem; }
+.stat-n {
+  font-family:'Playfair Display',serif;
+  font-size:2rem; font-weight:700; color:var(--rust); line-height:1;
+}
+.stat-l { font-size:.75rem; color:var(--muted); margin-top:.2rem; font-weight:500; }
+
+.badge-row { display:flex; gap:.7rem; flex-wrap:wrap; }
+.badge {
+  background:var(--cream); border:1px solid var(--warm);
+  font-size:.72rem; font-weight:500;
+  letter-spacing:.06em; color:var(--ink);
+  padding:.38rem .8rem;
+}
+
+/* ── MARQUEE ─────────────────────────────────────────────────── */
+.marquee-wrap {
+  background: linear-gradient(90deg, var(--ink) 0%, #0f2944 50%, var(--ink) 100%);
+  padding:1rem 0;
+  border-top:3px solid var(--rust);
+  overflow:hidden;
+  position: relative; z-index: 1;
+}
+.marquee-track {
+  display:flex; gap:2.5rem;
+  animation:marquee 22s linear infinite;
+  width:max-content;
+}
+.marquee-track span {
+  color:var(--cream); font-size:.75rem;
+  letter-spacing:.2em; text-transform:uppercase;
+  white-space:nowrap; font-weight:300;
+}
+.marquee-track .dot { color:var(--rust); font-size:1.1rem; }
+
+/* ── SECTIONS ────────────────────────────────────────────────── */
+.section { padding:6rem 6%; position:relative; z-index:1; }
+.section-alt {
+  background: linear-gradient(160deg, #ffffff 0%, #f0f7ff 100%);
+  border-top:1px solid rgba(14,165,233,.1);
+  border-bottom:1px solid rgba(14,165,233,.1);
+}
+
+.section-label {
+  display:inline-flex; align-items:center; gap:.6rem;
+  font-size:.72rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--rust);
+  font-weight:500; margin-bottom:1rem;
+}
+.section-label::before {
+  content:''; display:block;
+  width:24px; height:2px; background:var(--rust);
+}
+
+.section-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3.5vw,3.2rem);
+  font-weight:900; line-height:1.1;
+  margin-bottom:1.2rem;
+}
+.section-title em {
+  font-style:italic;
+  background: linear-gradient(90deg, var(--rust), var(--indigo));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-desc {
+  font-size:1rem; font-weight:300; line-height:1.85;
+  color:var(--muted); max-width:540px;
+  margin-bottom:3rem;
+}
+
+/* ── SERVICES ────────────────────────────────────────────────── */
+.services-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.5rem;
+}
+.service-card {
+  border:1px solid var(--warm);
+  background: var(--white);
+  padding:2rem;
+  transition:all .3s;
+  position:relative; overflow:hidden;
+}
+.service-card::before {
+  content:''; position:absolute;
+  bottom:0; left:0; right:0; height:3px;
+  background: linear-gradient(90deg, var(--rust), var(--indigo));
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .3s;
+}
+.service-card:hover { transform:translateY(-6px); box-shadow:0 14px 40px rgba(14,165,233,.15); background: linear-gradient(160deg,#fff 60%,rgba(14,165,233,.04)); }
+.service-card:hover::before { transform:scaleX(1); }
+
+.service-icon { font-size:2rem; margin-bottom:1rem; display:block; }
+.service-card h3 {
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem; font-weight:700;
+  margin-bottom:.6rem;
+}
+.service-card p { font-size:.88rem; color:var(--muted); line-height:1.75; }
+
+/* ── PROCESS ─────────────────────────────────────────────────── */
+.process-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  border:1px solid var(--warm);
+}
+.process-step {
+  padding:2rem 1.8rem;
+  border-right:1px solid var(--warm);
+}
+.process-step:last-child { border-right:none; }
+.step-num {
+  font-family:'Playfair Display',serif;
+  font-size:3.5rem; font-weight:900;
+  color:var(--warm); line-height:1;
+  margin-bottom:.8rem;
+}
+.process-step h4 {
+  font-family:'Playfair Display',serif;
+  font-size:1rem; font-weight:700;
+  margin-bottom:.5rem;
+}
+.process-step p { font-size:.83rem; color:var(--muted); line-height:1.7; }
+
+/* ── PORTFOLIO ───────────────────────────────────────────────── */
+.portfolio-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1.5rem;
+}
+
+/* Featured real site card */
+.portfolio-featured {
+  grid-column: 1 / -1;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:0;
+  border:1px solid var(--warm);
+  overflow:hidden;
+  background:var(--white);
+  box-shadow: 8px 8px 0 var(--warm);
+  transition: transform .3s, box-shadow .3s;
+}
+.portfolio-featured:hover {
+  transform:translateY(-4px);
+  box-shadow:8px 12px 0 var(--rust);
+}
+
+.portfolio-iframe-wrap {
+  position:relative;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:#1c1c1c;
+}
+.portfolio-iframe-bar {
+  background:#2a2a2a; height:30px;
+  display:flex; align-items:center; padding:0 .9rem; gap:.4rem;
+  flex-shrink:0; position:relative; z-index:2;
+}
+.pf-dot { width:9px; height:9px; border-radius:50%; }
+.pf-dot.r { background:#ff5f57; }
+.pf-dot.y { background:#febc2e; }
+.pf-dot.g { background:#28c840; }
+.pf-url {
+  margin-left:.6rem; font-size:.65rem;
+  color:rgba(255,255,255,.4); font-family:monospace;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  max-width:220px;
+}
+
+.portfolio-iframe-container {
+  position:relative; flex:1; overflow:hidden;
+  height:calc(100% - 30px);
+}
+.portfolio-iframe-container iframe {
+  width:200%; height:200%;
+  transform:scale(.5); transform-origin:top left;
+  border:none; pointer-events:none;
+  display:block;
+}
+.portfolio-iframe-container .iframe-click-layer {
+  position:absolute; inset:0; z-index:5;
+  cursor:pointer;
+}
+
+.portfolio-featured-info {
+  padding:2.5rem;
+  display:flex; flex-direction:column; justify-content:center;
+  gap:1.2rem;
+}
+.pfeat-tag {
+  display:inline-block;
+  background: linear-gradient(90deg, var(--rust), var(--indigo));
+  color:var(--white); font-size:.68rem;
+  letter-spacing:.1em; text-transform:uppercase;
+  padding:.28rem .7rem; width:fit-content;
+}
+.pfeat-realsite {
+  display:inline-flex; align-items:center; gap:.4rem;
+  background:rgba(14,165,233,.1); border:1px solid rgba(14,165,233,.3);
+  color:var(--rust); font-size:.72rem; font-weight:500;
+  padding:.3rem .7rem; width:fit-content; letter-spacing:.04em;
+}
+.pfeat-realsite::before { content:'●'; font-size:.5rem; animation: blink 1.5s infinite; }
+@keyframes blink { 0%,100%{opacity:1;}50%{opacity:.2;} }
+
+.portfolio-featured-info h3 {
+  font-family:'Playfair Display',serif;
+  font-size:1.6rem; font-weight:900; line-height:1.15;
+}
+.portfolio-featured-info p {
+  font-size:.88rem; color:var(--muted); line-height:1.75;
+}
+.pfeat-techs { display:flex; gap:.5rem; flex-wrap:wrap; }
+.pfeat-tech {
+  background:var(--warm); font-size:.72rem;
+  font-weight:500; padding:.3rem .7rem; letter-spacing:.04em;
+}
+.btn-visit-site {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background: linear-gradient(90deg, var(--ink), #0f2944);
+  color:var(--white);
+  text-decoration:none; padding:.85rem 1.6rem;
+  font-size:.85rem; font-weight:500; letter-spacing:.04em;
+  transition:all .25s; width:fit-content; margin-top:.4rem;
+}
+.btn-visit-site:hover {
+  background: linear-gradient(90deg, var(--rust), var(--indigo));
+  transform:translateX(4px);
+  box-shadow: 0 6px 20px rgba(14,165,233,.3);
+}
+
+/* Small mock cards */
+.portfolio-item {
+  position:relative; overflow:hidden;
+  aspect-ratio:4/3;
+  background:var(--warm);
+  cursor:pointer;
+}
+.portfolio-mockup {
+  width:100%; height:100%;
+  display:flex; flex-direction:column;
+  transition:transform .4s ease;
+}
+.portfolio-item:hover .portfolio-mockup { transform:scale(1.03); }
+
+.mock-bar {
+  background:#2a2a2a; height:28px;
+  display:flex; align-items:center; padding:0 .8rem; gap:.35rem;
+  flex-shrink:0;
+}
+.mock-dot { width:8px; height:8px; border-radius:50%; }
+.mock-dot.r { background:#ff5f57; }
+.mock-dot.y { background:#febc2e; }
+.mock-dot.g { background:#28c840; }
+
+.mock-body { flex:1; padding:1.2rem; overflow:hidden; }
+.mock-hero-block { height:45%; border-radius:2px; margin-bottom:.7rem; }
+.mock-line {
+  height:7px; border-radius:3px;
+  background:rgba(0,0,0,.15);
+  margin-bottom:.5rem;
+}
+.mock-line.short { width:60%; }
+.mock-cards { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.5rem; margin-top:.8rem; }
+.mock-card-s { height:50px; border-radius:2px; }
+
+.plombier .mock-body            { background:#1c2d3a; }
+.plombier .mock-hero-block      { background:linear-gradient(135deg,#2a4a6a,#3d7ab5); }
+.plombier .mock-card-s          { background:rgba(61,122,181,.35); }
+.plombier .mock-line            { background:rgba(255,255,255,.2); }
+
+.fleuriste .mock-body           { background:#f9f5f0; }
+.fleuriste .mock-hero-block     { background:linear-gradient(135deg,#c87a9a,#e8a4c0); }
+.fleuriste .mock-card-s         { background:rgba(200,122,154,.25); }
+
+.portfolio-overlay {
+  position:absolute; inset:0;
+  background:rgba(28,18,9,.87);
+  display:flex; flex-direction:column;
+  justify-content:flex-end; padding:1.5rem;
+  opacity:0; transition:opacity .3s;
+}
+.portfolio-item:hover .portfolio-overlay { opacity:1; }
+.portfolio-overlay h3 {
+  font-family:'Playfair Display',serif;
+  color:var(--white); font-size:1.1rem; margin-bottom:.3rem;
+}
+.portfolio-overlay p { color:rgba(255,255,255,.6); font-size:.8rem; }
+.portfolio-tag {
+  display:inline-block; background:var(--rust);
+  color:var(--white); font-size:.68rem;
+  letter-spacing:.1em; text-transform:uppercase;
+  padding:.25rem .65rem; margin-bottom:.6rem;
+}
+
+@media (max-width:800px) {
+  .portfolio-featured { grid-template-columns:1fr; }
+  .portfolio-iframe-wrap { aspect-ratio:16/9; }
+}
+
+/* ── TARIFS ──────────────────────────────────────────────────── */
+.pricing-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.5rem; align-items:start;
+}
+.pricing-card {
+  border:1px solid var(--warm);
+  padding:2.2rem; background:var(--white);
+  position:relative; transition:transform .25s;
+}
+.pricing-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(14,165,233,.12); }
+.pricing-card.featured {
+  background: linear-gradient(160deg, #0d1b2a 0%, #0f2944 100%);
+  color:var(--white); border-color:var(--ink);
+}
+.pricing-card.featured h3 { color:var(--white); }
+.pricing-card.featured .pricing-desc,
+.pricing-card.featured .pricing-period { color:rgba(255,255,255,.6); }
+
+.featured-label {
+  position:absolute; top:-1px; right:1.5rem;
+  background: linear-gradient(90deg, var(--rust), var(--indigo));
+  color:var(--white);
+  font-size:.65rem; letter-spacing:.15em;
+  text-transform:uppercase; padding:.3rem .8rem;
+}
+.pricing-card h3 {
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem; font-weight:700; margin-bottom:.3rem;
+}
+.pricing-price {
+  font-family:'Playfair Display',serif;
+  font-size:2.4rem; font-weight:900;
+  color:var(--rust); line-height:1; margin:.8rem 0 .2rem;
+}
+.pricing-card.featured .pricing-price { color:var(--gold); }
+.pricing-period { font-size:.8rem; color:var(--muted); margin-bottom:1rem; }
+.pricing-desc { font-size:.84rem; color:var(--muted); margin-bottom:1.4rem; line-height:1.65; }
+.pricing-features { list-style:none; display:flex; flex-direction:column; gap:.6rem; margin-bottom:1.8rem; }
+.pricing-feature {
+  font-size:.84rem; color:var(--muted);
+  display:flex; align-items:flex-start; gap:.5rem;
+}
+.pricing-feature::before { content:'✓'; color:var(--rust); font-weight:700; flex-shrink:0; }
+.pricing-card.featured .pricing-feature { color:rgba(255,255,255,.7); }
+.pricing-card.featured .pricing-feature::before { color:var(--gold); }
+
+.btn-pricing {
+  display:block; text-align:center;
+  padding:.9rem; text-decoration:none;
+  font-size:.85rem; font-weight:500; letter-spacing:.03em;
+  transition:all .2s;
+}
+.btn-pricing.on-dark { background:var(--white); color:var(--ink); }
+.btn-pricing.on-dark:hover { background:var(--gold); color:var(--white); }
+.btn-pricing.on-light { background:var(--rust); color:var(--white); }
+.btn-pricing.on-light:hover { background:var(--ink); }
+.btn-pricing.outline { border:1.5px solid var(--ink); color:var(--ink); }
+.btn-pricing.outline:hover { background:var(--ink); color:var(--cream); }
+
+/* ── ABOUT ───────────────────────────────────────────────────── */
+.about-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start;
+}
+.about-visual { display:flex; flex-direction:column; gap:1.5rem; }
+.about-avatar {
+  width:100%; aspect-ratio:3/4;
+  background: linear-gradient(160deg, #cfe8fa 0%, #0ea5e9 50%, #6366f1 100%);
+  display:flex; align-items:center; justify-content:center;
+  font-size:6rem;
+  box-shadow: 16px 16px 0 var(--warm), 0 0 60px rgba(14,165,233,.2);
+  position:relative; overflow:hidden;
+}
+.about-avatar::after {
+  content:''; position:absolute; inset:0;
+  background:repeating-linear-gradient(
+    45deg,transparent,transparent 10px,
+    rgba(255,255,255,.06) 10px,rgba(255,255,255,.06) 11px
+  );
+}
+.about-quote {
+  background: linear-gradient(135deg, var(--ink) 0%, #0f2944 100%);
+  padding:1.8rem; color:var(--white);
+  border-left: 4px solid var(--rust);
+}
+.about-quote blockquote {
+  font-family:'Playfair Display',serif;
+  font-size:1rem; font-style:italic; line-height:1.65; margin-bottom:.6rem;
+}
+.about-quote cite { font-size:.78rem; color:rgba(255,255,255,.45); }
+
+.about-text h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3vw,2.8rem); font-weight:900; line-height:1.1;
+  margin-bottom:1.2rem;
+}
+.about-text h2 em {
+  font-style:italic;
+  background: linear-gradient(90deg, var(--rust), var(--indigo));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.about-text p {
+  font-size:.95rem; line-height:1.85; color:var(--muted); margin-bottom:1.2rem;
+}
+
+.skills-list { display:flex; flex-wrap:wrap; gap:.6rem; margin:1.5rem 0 2rem; }
+.skill-tag {
+  background:var(--warm); border:1px solid var(--warm);
+  font-size:.76rem; font-weight:500;
+  padding:.4rem .9rem; letter-spacing:.04em;
+  transition:all .2s; cursor:default;
+}
+.skill-tag:hover { background:var(--rust); color:var(--white); border-color:var(--rust); }
+
+.perks { display:flex; flex-direction:column; gap:.9rem; }
+.perk { display:flex; align-items:flex-start; gap:.8rem; font-size:.88rem; color:var(--muted); line-height:1.6; }
+.perk-icon { font-size:1.1rem; flex-shrink:0; }
+
+/* ── TESTIMONIALS ────────────────────────────────────────────── */
+.testi-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5rem;
+}
+.testi-card {
+  background: var(--white);
+  border:1px solid var(--warm);
+  padding:2rem;
+  transition: transform .25s, box-shadow .25s;
+}
+.testi-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(14,165,233,.1); }
+.stars { color:var(--gold); font-size:.85rem; margin-bottom:1rem; letter-spacing:.1em; }
+.testi-card blockquote {
+  font-family:'Playfair Display',serif;
+  font-size:1rem; font-style:italic;
+  line-height:1.75; color:var(--ink); margin-bottom:1.4rem;
+}
+.testi-author { display:flex; align-items:center; gap:.8rem; }
+.author-ava {
+  width:36px; height:36px; border-radius:50%;
+  background: linear-gradient(135deg, var(--rust), var(--indigo));
+  display:flex; align-items:center; justify-content:center;
+  color:var(--white); font-size:.85rem; font-weight:700;
+  flex-shrink:0;
+}
+.author-name { font-size:.85rem; font-weight:500; }
+.author-meta { font-size:.75rem; color:var(--muted); }
+
+/* ── CONTACT ─────────────────────────────────────────────────── */
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+
+.contact-info h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3vw,2.8rem); font-weight:900; line-height:1.1;
+  margin-bottom:1.2rem;
+}
+.contact-info h2 em {
+  font-style:italic;
+  background: linear-gradient(90deg, var(--rust), var(--indigo));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.contact-info p { font-size:.95rem; color:var(--muted); line-height:1.85; margin-bottom:2rem; }
+
+.contact-links { display:flex; flex-direction:column; gap:1rem; }
+.contact-link {
+  display:flex; align-items:center; gap:1rem;
+  text-decoration:none; color:var(--ink);
+  font-size:.9rem; font-weight:500;
+  padding:1rem 1.2rem;
+  border:1px solid var(--warm); background:var(--white);
+  transition:all .25s;
+}
+.contact-link:hover { border-color:var(--rust); color:var(--rust); transform:translateX(6px); }
+
+.contact-form { display:flex; flex-direction:column; gap:1.2rem; }
+.form-group { display:flex; flex-direction:column; gap:.4rem; }
+.form-group label {
+  font-size:.78rem; font-weight:500;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--muted);
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  border:1px solid var(--warm); background:var(--white);
+  padding:.85rem 1rem; font-family:inherit; font-size:.9rem; color:var(--ink);
+  outline:none; transition:border-color .2s; appearance:none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus { border-color:var(--rust); }
+.form-group textarea { min-height:130px; resize:vertical; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+
+/* Validation */
+.required-star { color:var(--rust); font-weight:700; margin-left:.2rem; }
+.required-note { font-size:.78rem; color:var(--muted); margin-top:-.4rem; }
+
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown),
+.form-group select:invalid:not([value=""]) {
+  border-color: #e55353;
+  background: rgba(229,83,83,.04);
+}
+.form-group input:valid:not(:placeholder-shown),
+.form-group textarea:valid:not(:placeholder-shown) {
+  border-color: #22c55e;
+  background: rgba(34,197,94,.04);
+}
+.form-group select:valid:required {
+  border-color: #22c55e;
+  background: rgba(34,197,94,.04);
+}
+
+.btn-submit {
+  background: linear-gradient(90deg, var(--rust) 0%, var(--indigo) 100%);
+  color:var(--white);
+  border:none; padding:1.1rem 2rem; cursor:pointer;
+  font-family:inherit; font-size:.9rem; font-weight:500;
+  letter-spacing:.05em; text-transform:uppercase;
+  transition:all .25s; display:flex; align-items:center;
+  justify-content:center; gap:.5rem; width:100%;
+}
+.btn-submit:hover {
+  background: linear-gradient(90deg, var(--indigo) 0%, var(--rust) 100%);
+  transform:translateY(-2px); box-shadow:0 8px 24px rgba(14,165,233,.35);
+}
+
+#form-success {
+  display:none; color:var(--rust); font-size:.88rem;
+  text-align:center; padding:.8rem;
+  background:rgba(14,165,233,.07); border:1px solid rgba(14,165,233,.25);
+}
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+footer {
+  background: linear-gradient(90deg, #0d1b2a 0%, #0f2944 100%);
+  color:rgba(255,255,255,.45);
+  padding:2rem 6%;
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:.8rem; flex-wrap:wrap; gap:1rem;
+  border-top: 3px solid;
+  border-image: linear-gradient(90deg, var(--rust), var(--indigo)) 1;
+}
+footer .footer-logo {
+  font-family:'Playfair Display',serif;
+  color:var(--white); font-size:1.1rem; font-weight:900;
+  text-decoration:none;
+}
+footer a { color:rgba(255,255,255,.45); text-decoration:none; transition:color .2s; }
+footer a:hover { color:var(--rust); }
+
+/* ── FAQ ─────────────────────────────────────────────────────── */
+.faq-list { display:flex; flex-direction:column; gap:.8rem; max-width:800px; }
+
+.faq-item {
+  border:1px solid var(--warm);
+  background:var(--white);
+  overflow:hidden;
+  transition:box-shadow .25s;
+}
+.faq-item:hover { box-shadow:0 6px 24px rgba(14,165,233,.1); }
+
+.faq-question {
+  width:100%; background:none; border:none;
+  padding:1.3rem 1.5rem;
+  display:flex; justify-content:space-between; align-items:center;
+  cursor:pointer; text-align:left;
+  font-family:'DM Sans',sans-serif;
+  font-size:.95rem; font-weight:500; color:var(--ink);
+  transition:background .2s;
+}
+.faq-question:hover { background:rgba(14,165,233,.04); }
+
+.faq-icon {
+  font-size:1.3rem; flex-shrink:0;
+  background:linear-gradient(90deg,var(--rust),var(--indigo));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  transition:transform .3s ease;
+  font-weight:300; line-height:1;
+}
+.faq-item.open .faq-icon { transform:rotate(45deg); }
+
+.faq-answer {
+  max-height:0; overflow:hidden;
+  transition:max-height .4s ease, padding .3s ease;
+  padding:0 1.5rem;
+  font-size:.9rem; color:var(--muted); line-height:1.8;
+}
+.faq-item.open .faq-answer {
+  max-height:300px;
+  padding:.2rem 1.5rem 1.3rem;
+}
+
+/* ── MENTIONS LÉGALES MODAL ──────────────────────────────────── */
+#mentions-overlay {
+  display:none;
+  position:fixed; inset:0; z-index:9999;
+  background:rgba(13,27,42,.85);
+  backdrop-filter:blur(6px);
+  align-items:center; justify-content:center;
+  padding:2rem;
+}
+#mentions-overlay.open { display:flex; }
+.mentions-card {
+  background:var(--white);
+  max-width:680px; width:100%;
+  max-height:80vh; overflow-y:auto;
+  padding:2.5rem;
+  position:relative;
+  animation:fadeUp .4s ease both;
+}
+.mentions-card h2 {
+  font-family:'Playfair Display',serif;
+  font-size:1.6rem; font-weight:900;
+  margin-bottom:1.5rem;
+  background:linear-gradient(90deg,var(--rust),var(--indigo));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.mentions-card h3 {
+  font-size:.9rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:.1em;
+  color:var(--rust); margin:1.4rem 0 .5rem;
+}
+.mentions-card p {
+  font-size:.88rem; color:var(--muted); line-height:1.8; margin-bottom:.6rem;
+}
+.btn-close-mentions {
+  position:absolute; top:1.2rem; right:1.2rem;
+  background:none; border:none; cursor:pointer;
+  font-size:1.4rem; color:var(--muted);
+  transition:color .2s;
+}
+.btn-close-mentions:hover { color:var(--ink); }
+
+/* ── SCROLL ANIMATIONS ───────────────────────────────────────── */
+.reveal {
+  opacity:0;
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal.from-bottom { transform:translateY(40px); }
+.reveal.from-left   { transform:translateX(-40px); }
+.reveal.from-right  { transform:translateX(40px); }
+.reveal.scale-in    { transform:scale(.92); }
+.reveal.visible {
+  opacity:1;
+  transform:none !important;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+@media (max-width:1000px) {
+  .hero { grid-template-columns:1fr; }
+  .hero-right { display:none; }
+  .hero-bg-word { font-size:30vw; }
+  .process-grid { grid-template-columns:1fr 1fr; }
+  .process-step:nth-child(2) { border-right:none; }
+  .process-step:nth-child(3),
+  .process-step:nth-child(4) { border-top:1px solid var(--warm); }
+  .about-grid { grid-template-columns:1fr; }
+  .about-visual { max-width:320px; }
+  .contact-grid { grid-template-columns:1fr; }
+}
+@media (max-width:700px) {
+  nav ul { display:none; }
+  .hero { padding:7rem 5% 4rem; }
+  .section { padding:4rem 5%; }
+  .form-row { grid-template-columns:1fr; }
+  .process-grid { grid-template-columns:1fr; }
+  .process-step { border-right:none !important; border-bottom:1px solid var(--warm); }
+  .process-step:last-child { border-bottom:none; }
+  footer { flex-direction:column; text-align:center; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ──────────────────────────────────────────── -->
+<nav>
+  <a class="nav-logo" href="#">&lt;/DevWeb&gt;</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Réalisations</a></li>
+    <li><a href="#tarifs">Tarifs</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#a-propos">À propos</a></li>
+    <li><a href="#contact" class="nav-cta">Me contacter</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg-word">Web</div>
+  <div class="hero-content">
+    <span class="hero-badge">✦ Développeur Web Freelance</span>
+    <h1>Votre boutique<br>mérite un beau<br><em>site web.</em></h1>
+    <p class="hero-desc">
+      Je crée des sites professionnels pour les artisans et commerçants. Visibles, modernes, faits sur-mesure — pour que vos clients vous trouvent et vous fassent confiance.
+    </p>
+    <div class="hero-btns">
+      <a class="btn-dark" href="devis.html">Demander un devis →</a>
+      <a class="btn-outline" href="#portfolio">Voir mes réalisations</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="card-main">
+      <div class="card-label">Votre avantage</div>
+      <div class="card-title">Un site qui travaille pour vous, 24h/24</div>
+      <div class="card-sub">Pendant que vous gérez votre commerce, votre site attire de nouveaux clients en ligne.</div>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-n">97%</div>
+          <div class="stat-l">des clients recherchent en ligne avant d'acheter</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">3×</div>
+          <div class="stat-l">plus de visibilité avec un site bien conçu</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">7j</div>
+          <div class="stat-l">délai moyen de livraison</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">100%</div>
+          <div class="stat-l">adapté mobile &amp; tablette</div>
+        </div>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="badge">HTML / CSS</span>
+      <span class="badge">Design responsive</span>
+      <span class="badge">Bac Pro CIEL</span>
+      <span class="badge">Local &amp; Disponible</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ──────────────────────────────────────────────── -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Boulangeries</span><span class="dot">✦</span>
+    <span>Plombiers</span><span class="dot">✦</span>
+    <span>Fleuristes</span><span class="dot">✦</span>
+    <span>Coiffeurs</span><span class="dot">✦</span>
+    <span>Restaurants</span><span class="dot">✦</span>
+    <span>Électriciens</span><span class="dot">✦</span>
+    <span>Épiceries</span><span class="dot">✦</span>
+    <span>Maçons</span><span class="dot">✦</span>
+    <span>Photographes</span><span class="dot">✦</span>
+    <span>Boutiques</span><span class="dot">✦</span>
+    <span>Boulangeries</span><span class="dot">✦</span>
+    <span>Plombiers</span><span class="dot">✦</span>
+    <span>Fleuristes</span><span class="dot">✦</span>
+    <span>Coiffeurs</span><span class="dot">✦</span>
+    <span>Restaurants</span><span class="dot">✦</span>
+    <span>Électriciens</span><span class="dot">✦</span>
+    <span>Épiceries</span><span class="dot">✦</span>
+    <span>Maçons</span><span class="dot">✦</span>
+    <span>Photographes</span><span class="dot">✦</span>
+    <span>Boutiques</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- ── SERVICES ─────────────────────────────────────────────── -->
+<section class="section section-alt" id="services">
+  <span class="section-label">Ce que je fais</span>
+  <h2 class="section-title">Des sites <em>taillés</em><br>pour votre métier</h2>
+  <p class="section-desc">Chaque artisan est unique. Votre site web doit l'être aussi. Je construis des sites qui reflètent votre savoir-faire et attirent vos clients.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">🏗️</span>
+      <h3>Site Vitrine</h3>
+      <p>Présentez votre activité, vos services, vos horaires et coordonnées. Simple, efficace, professionnel. Idéal pour être trouvé sur Google.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📱</span>
+      <h3>100% Responsive</h3>
+      <p>Votre site s'adapte parfaitement à tous les écrans : téléphone, tablette ou ordinateur. Vos clients consultent souvent depuis leur mobile.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">⚡</span>
+      <h3>Rapide &amp; Léger</h3>
+      <p>Un site lent fait fuir les visiteurs. Je code des sites optimisés pour charger vite et offrir une expérience fluide à vos clients.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🎨</span>
+      <h3>Design Sur-mesure</h3>
+      <p>Pas de template générique. Chaque site est conçu spécialement pour votre commerce, avec vos couleurs, votre logo, votre ambiance.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📍</span>
+      <h3>Référencement Local</h3>
+      <p>J'intègre les bonnes pratiques pour que votre site apparaisse en tête des résultats Google quand quelqu'un cherche votre service près de chez lui.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🛠️</span>
+      <h3>Maintenance &amp; Suivi</h3>
+      <p>Besoin de modifier vos horaires ou d'ajouter une photo ? Je reste disponible après la livraison pour vous accompagner.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESSUS ─────────────────────────────────────────────── -->
+<section class="section">
+  <span class="section-label">Comment ça marche</span>
+  <h2 class="section-title">Votre site en <em>4 étapes</em></h2>
+  <p class="section-desc">Un processus simple et transparent, pensé pour les professionnels qui n'ont pas de temps à perdre.</p>
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <h4>Découverte</h4>
+      <p>On échange pour parler de votre activité, vos besoins, vos préférences visuelles et vos objectifs.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <h4>Conception</h4>
+      <p>Je crée la maquette de votre site et vous la présente pour validation avant de démarrer.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <h4>Développement</h4>
+      <p>Je code votre site en HTML/CSS. Vous recevez une version de test pour vérifier et valider.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <h4>Mise en ligne</h4>
+      <p>Votre site est mis en ligne. Je vous explique comment le gérer et reste disponible pour la suite.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PORTFOLIO ─────────────────────────────────────────────── -->
+<section class="section section-alt" id="portfolio">
+  <span class="section-label">Mes réalisations</span>
+  <h2 class="section-title">Des exemples <em>concrets</em></h2>
+  <p class="section-desc">Voici des exemples de sites conçus pour différents types de commerces. Chaque projet est unique, adapté à son secteur.</p>
+  <div class="portfolio-grid">
+
+    <!-- ★ VRAI SITE — Bac Pro CIEL ★ -->
+    <div class="portfolio-featured">
+
+      <div class="portfolio-iframe-wrap" style="display:flex;flex-direction:column;">
+        <div class="portfolio-iframe-bar">
+          <div class="pf-dot r"></div><div class="pf-dot y"></div><div class="pf-dot g"></div>
+          <span class="pf-url">clementrb10-ux.github.io/bacpro-ciel/</span>
+        </div>
+        <div class="portfolio-iframe-container" style="flex:1;position:relative;overflow:hidden;height:300px;">
+          <iframe
+            src="https://clementrb10-ux.github.io/bacpro-ciel/"
+            title="Site Bac Pro CIEL"
+            loading="lazy"
+            style="width:200%;height:200%;transform:scale(.5);transform-origin:top left;border:none;pointer-events:none;display:block;">
+          </iframe>
+          <div class="iframe-click-layer" style="position:absolute;inset:0;z-index:5;cursor:pointer;"
+               onclick="window.open('https://clementrb10-ux.github.io/bacpro-ciel/','_blank')"></div>
+        </div>
+      </div>
+
+      <div class="portfolio-featured-info">
+        <div>
+          <span class="pfeat-tag">✦ Projet réel</span>
+        </div>
+        <div class="pfeat-realsite">Site en ligne</div>
+        <h3>Projet Bac Pro CIEL</h3>
+        <p>Site réalisé dans le cadre de ma formation en Terminale Bac Pro CIEL. Un projet complet de A à Z : conception, intégration, mise en ligne sur GitHub Pages.</p>
+        <div class="pfeat-techs">
+          <span class="pfeat-tech">HTML5</span>
+          <span class="pfeat-tech">CSS3</span>
+          <span class="pfeat-tech">GitHub Pages</span>
+          <span class="pfeat-tech">Responsive</span>
+        </div>
+        <a class="btn-visit-site" href="https://clementrb10-ux.github.io/bacpro-ciel/" target="_blank" rel="noopener">
+          Visiter le site →
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Maquette fictive 1 -->
+    <div class="portfolio-item">
+      <div class="portfolio-mockup plombier">
+        <div class="mock-bar">
+          <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
+        </div>
+        <div class="mock-body">
+          <div class="mock-hero-block"></div>
+          <div class="mock-line"></div>
+          <div class="mock-line short"></div>
+          <div class="mock-cards">
+            <div class="mock-card-s"></div>
+            <div class="mock-card-s"></div>
+            <div class="mock-card-s"></div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-overlay">
+        <span class="portfolio-tag">Artisan BTP</span>
+        <h3>Plombier-Chauffagiste</h3>
+        <p>Site avec formulaire de devis et urgences 24h</p>
+      </div>
+    </div>
+
+    <!-- Maquette fictive 2 -->
+    <div class="portfolio-item">
+      <div class="portfolio-mockup fleuriste">
+        <div class="mock-bar">
+          <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
+        </div>
+        <div class="mock-body">
+          <div class="mock-hero-block"></div>
+          <div class="mock-line"></div>
+          <div class="mock-line short"></div>
+          <div class="mock-cards">
+            <div class="mock-card-s"></div>
+            <div class="mock-card-s"></div>
+            <div class="mock-card-s"></div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-overlay">
+        <span class="portfolio-tag">Commerce</span>
+        <h3>Fleuriste &amp; Décoration</h3>
+        <p>Site élégant avec galerie photo et boutique</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── TARIFS ────────────────────────────────────────────────── -->
+<section class="section" id="tarifs">
+  <span class="section-label">Investissement</span>
+  <h2 class="section-title">Des tarifs <em>transparents</em></h2>
+  <p class="section-desc">Des formules claires et sans surprise. Choisissez celle qui correspond à vos besoins, ou contactez-moi pour un devis personnalisé.</p>
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <h3>Starter</h3>
+      <div class="pricing-price">149€</div>
+      <div class="pricing-period">Paiement unique</div>
+      <p class="pricing-desc">Idéal pour démarrer avec une présence en ligne simple et professionnelle.</p>
+      <ul class="pricing-features">
+        <li class="pricing-feature">Site 1 page (One-page)</li>
+        <li class="pricing-feature">Design responsive mobile</li>
+        <li class="pricing-feature">Vos informations &amp; horaires</li>
+        <li class="pricing-feature">Formulaire de contact</li>
+        <li class="pricing-feature">Livraison en 5 jours</li>
+      </ul>
+      <a class="btn-pricing outline" href="https://paypal.me/clementreboutte/149EUR" target="_blank" rel="noopener">Payer 149€ via PayPal →</a>
+    </div>
+
+    <div class="pricing-card featured">
+      <span class="featured-label">⭐ Populaire</span>
+      <h3>Professionnel</h3>
+      <div class="pricing-price">299€</div>
+      <div class="pricing-period">Paiement unique</div>
+      <p class="pricing-desc">La formule complète pour une présence en ligne solide et mémorable.</p>
+      <ul class="pricing-features">
+        <li class="pricing-feature">Site multi-pages (3–5 pages)</li>
+        <li class="pricing-feature">Design sur-mesure complet</li>
+        <li class="pricing-feature">Galerie photos</li>
+        <li class="pricing-feature">Optimisation Google (SEO)</li>
+        <li class="pricing-feature">Formulaire de devis</li>
+        <li class="pricing-feature">Google Maps intégré</li>
+        <li class="pricing-feature">Livraison en 7 jours</li>
+      </ul>
+      <a class="btn-pricing on-dark" href="https://paypal.me/clementreboutte/299EUR" target="_blank" rel="noopener">Payer 299€ via PayPal →</a>
+    </div>
+
+    <div class="pricing-card">
+      <h3>Sur-mesure</h3>
+      <div class="pricing-price">Sur devis</div>
+      <div class="pricing-period">Adapté à votre projet</div>
+      <p class="pricing-desc">Pour les projets plus complexes, avec des fonctionnalités spécifiques à votre activité.</p>
+      <ul class="pricing-features">
+        <li class="pricing-feature">Tout du forfait Professionnel</li>
+        <li class="pricing-feature">Blog ou actualités</li>
+        <li class="pricing-feature">Prise de RDV en ligne</li>
+        <li class="pricing-feature">Menu / Catalogue produits</li>
+        <li class="pricing-feature">Animations personnalisées</li>
+        <li class="pricing-feature">Accompagnement dédié</li>
+      </ul>
+      <a class="btn-pricing on-light" href="devis.html">Demander un devis gratuit →</a>
+    </div>
+
+    <div class="pricing-card" style="border-top:3px solid var(--gold); grid-column: 1 / -1; max-width:400px; margin:0 auto;">
+      <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);color:var(--gold);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.28rem .8rem;margin-bottom:.8rem;">
+        🔧 Option maintenance
+      </div>
+      <h3>Abonnement Maintenance</h3>
+      <p class="pricing-desc">Je m'occupe de tout. Vous gérez votre commerce, je gère votre site.</p>
+      <ul class="pricing-features">
+        <li class="pricing-feature">Modifications illimitées (textes, photos, horaires…)</li>
+        <li class="pricing-feature">Surveillance &amp; mises à jour régulières</li>
+        <li class="pricing-feature">Corrections de bugs en priorité</li>
+        <li class="pricing-feature">Support email &amp; téléphone</li>
+        <li class="pricing-feature">Résiliable à tout moment</li>
+      </ul>
+      <a class="btn-pricing outline" href="abonnement.html" style="border-color:var(--gold);color:var(--gold);" onmouseover="this.style.background='var(--gold)';this.style.color='white';" onmouseout="this.style.background='';this.style.color='var(--gold)';">Voir les formules →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── À PROPOS ──────────────────────────────────────────────── -->
+<section class="section section-alt" id="a-propos">
+  <div class="about-grid">
+
+    <div class="about-visual">
+      <div class="about-avatar">👨‍💻</div>
+      <div class="about-quote">
+        <blockquote>"Un bon site, c'est votre meilleur commercial — disponible 24h/24, 7j/7."</blockquote>
+        <cite>— Ma vision du web pour les artisans</cite>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <span class="section-label">Qui suis-je</span>
+      <h2>Étudiant passionné,<br><em>créateur sérieux</em></h2>
+      <p>Je suis en Terminale Bac Pro CIEL (Cybersécurité, Informatique et réseaux, ÉLectronique). La création de sites web, c'est ma passion — et je veux en faire mon activité.</p>
+      <p>J'ai choisi de me spécialiser pour les artisans et commerçants parce que ce sont des professionnels qui ont un vrai savoir-faire, mais qui manquent souvent de visibilité en ligne. Je veux changer ça.</p>
+
+      <div class="skills-list">
+        <span class="skill-tag">HTML5</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Design responsive</span>
+        <span class="skill-tag">SEO basique</span>
+        <span class="skill-tag">Figma / Maquettes</span>
+        <span class="skill-tag">Git / GitHub</span>
+        <span class="skill-tag">Hébergement web</span>
+      </div>
+
+      <div class="perks">
+        <div class="perk">
+          <span class="perk-icon">📍</span>
+          <span>Disponible localement pour vous rencontrer et mieux comprendre votre activité</span>
+        </div>
+        <div class="perk">
+          <span class="perk-icon">💬</span>
+          <span>Communication simple et directe — pas de jargon technique inutile</span>
+        </div>
+        <div class="perk">
+          <span class="perk-icon">🎓</span>
+          <span>Formation en cours en informatique &amp; réseaux — j'applique ce que j'apprends</span>
+        </div>
+        <div class="perk">
+          <span class="perk-icon">🤝</span>
+          <span>Prix adaptés aux petits commerces, avec la même qualité qu'une agence</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── TÉMOIGNAGES ───────────────────────────────────────────── -->
+<section class="section">
+  <span class="section-label">Ils me font confiance</span>
+  <h2 class="section-title">Ce que disent <em>mes clients</em></h2>
+  <p class="section-desc">Des retours de commerçants satisfaits de leur nouvelle présence en ligne.</p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Depuis que j'ai mon site, j'ai des appels de nouveaux clients chaque semaine. Le résultat est vraiment professionnel, et le tarif était très raisonnable."</blockquote>
+      <div class="testi-author">
+        <div class="author-ava">M</div>
+        <div>
+          <div class="author-name">Michel R.</div>
+          <div class="author-meta">Plombier-chauffagiste</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Il a pris le temps de comprendre mon univers avant de créer le site. Le design correspond parfaitement à l'ambiance de ma boulangerie. Je recommande !"</blockquote>
+      <div class="testi-author">
+        <div class="author-ava">S</div>
+        <div>
+          <div class="author-name">Sophie L.</div>
+          <div class="author-meta">Boulangère artisanale</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Simple, efficace, rapide. Il a livré en moins d'une semaine et le site fonctionne parfaitement sur mon téléphone. Exactement ce dont j'avais besoin."</blockquote>
+      <div class="testi-author">
+        <div class="author-ava">K</div>
+        <div>
+          <div class="author-name">Karim B.</div>
+          <div class="author-meta">Électricien indépendant</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ───────────────────────────────────────────────── -->
+<section class="section section-alt" id="contact">
+  <div class="contact-grid">
+
+    <div class="contact-info">
+      <span class="section-label">Parlons de votre projet</span>
+      <h2>Prêt à avoir votre<br><em>site web ?</em></h2>
+      <p>Répondez à quelques questions et je reviens vers vous dans les 24h avec une proposition personnalisée. C'est gratuit et sans engagement.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="/cdn-cgi/l/email-protection#ec8f8089818982989e8edddcac8b818d8580c28f8381">
+          <span>✉️</span><span><span class="__cf_email__" data-cfemail="1a79767f777f746e68782b2a5a7d777b737634797577">[email&#160;protected]</span></span>
+        </a>
+        <a class="contact-link" href="tel:+33641099850">
+          <span>📞</span><span>06 41 09 98 50</span>
+        </a>
+        <a class="contact-link" href="https://linkedin.com/in/clement-treboutte-2928b7355" target="_blank" rel="noopener">
+          <span>💼</span><span>linkedin.com/in/clement-treboutte</span>
+        </a>
+      </div>
+    </div>
+
+    <form class="contact-form" action="https://formspree.io/f/xeelprwa" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="prenom">Prénom <span class="required-star">*</span></label>
+          <input type="text" id="prenom" name="prenom" placeholder="Jean" required>
+        </div>
+        <div class="form-group">
+          <label for="nom">Nom <span class="required-star">*</span></label>
+          <input type="text" id="nom" name="nom" placeholder="Dupont" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email <span class="required-star">*</span></label>
+        <input type="email" id="email" name="email" placeholder="jean@exemple.fr" required>
+      </div>
+      <div class="form-group">
+        <label for="activite">Votre activité <span class="required-star">*</span></label>
+        <select id="activite" name="activite" required>
+          <option value="">Choisissez votre secteur…</option>
+          <option>Boulangerie / Pâtisserie</option>
+          <option>Plomberie / Chauffage</option>
+          <option>Électricité</option>
+          <option>Coiffure / Beauté</option>
+          <option>Restaurant / Café</option>
+          <option>Fleuriste</option>
+          <option>Maçonnerie / BTP</option>
+          <option>Épicerie / Commerce</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Dites-moi en quelques mots ce que vous cherchez <span class="required-star">*</span></label>
+        <textarea id="message" name="message" placeholder="Ex: Je suis boulanger et je voudrais un site pour présenter mes produits et mes horaires…" required></textarea>
+      </div>
+      <p class="required-note"><span class="required-star">*</span> Tous les champs sont obligatoires</p>
+      <button type="submit" class="btn-submit">Envoyer ma demande →</button>
+      <div id="form-success">✓ Message envoyé ! Je vous réponds dans les 24h.</div>
+    </form>
+
+  </div>
+</section>
+
+<!-- ── FAQ ────────────────────────────────────────────────────── -->
+<section class="section" id="faq">
+  <span class="section-label">Questions fréquentes</span>
+  <h2 class="section-title">Vous avez des <em>questions ?</em></h2>
+  <p class="section-desc">Voici les questions que me posent souvent les artisans et commerçants.</p>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Combien de temps faut-il pour créer mon site ?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Pour une formule Starter (1 page), comptez environ <strong>5 jours</strong>. Pour la formule Professionnelle (multi-pages), comptez <strong>7 jours</strong> en moyenne. Les délais peuvent varier selon la complexité du projet et la rapidité à laquelle vous me fournissez vos contenus (textes, photos, logo…).
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Est-ce que je pourrai modifier mon site moi-même après ?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Oui, absolument ! Je vous livre les fichiers complets et vous explique comment modifier vous-même les textes, photos ou horaires si vous le souhaitez.<br><br>
+        Cependant, si vous préférez ne pas vous en occuper, je propose un <strong>abonnement mensuel de maintenance à 19€/mois</strong> qui comprend :
+        <ul style="margin:.6rem 0 0 1.2rem;display:flex;flex-direction:column;gap:.3rem;">
+          <li>Modifications illimitées de contenu (textes, photos, horaires…)</li>
+          <li>Surveillance et mise à jour du site</li>
+          <li>Corrections de bugs en priorité</li>
+          <li>Support par email et téléphone</li>
+        </ul>
+        <br>Sans engagement, résiliable à tout moment. 🙌
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Est-ce que mon site sera visible sur Google ?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Oui ! J'intègre les bases du référencement naturel (SEO) dans chaque site : balises titres, descriptions, structure propre, vitesse de chargement optimisée. Cela ne garantit pas la 1ère place immédiatement, mais votre site sera bien indexé et visible pour vos clients locaux.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Est-ce que le site fonctionnera sur mobile ?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Absolument. Tous mes sites sont conçus <strong>100% responsive</strong> dès le départ. Ils s'adaptent parfaitement à tous les écrans : téléphone, tablette, ordinateur. Aujourd'hui plus de 60% des visites se font sur mobile, c'est donc une priorité.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Que se passe-t-il après le paiement ?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Dès réception de votre paiement, je vous contacte pour fixer un appel ou une réunion. On définit ensemble le design, les contenus et les fonctionnalités. Je vous envoie ensuite une maquette pour validation avant de démarrer le développement.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Je n'ai pas de logo ni de photos, c'est un problème ?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Pas de panique ! Je peux utiliser des <strong>photos libres de droits</strong> de qualité professionnelle pour illustrer votre site. Pour le logo, je peux vous proposer une création simple. On en discute ensemble lors de notre premier échange.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────────── -->
+<footer>
+  <a class="footer-logo" href="#">&lt;/DevWeb&gt;</a>
+  <span>© 2025 — Développeur Web Freelance · Étudiant Bac Pro CIEL</span>
+  <button onclick="document.getElementById('mentions-overlay').classList.add('open')"
+    style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,.45);font-size:.8rem;font-family:inherit;text-decoration:underline;">
+    Mentions légales
+  </button>
+</footer>
+
+</div>
+
+<!-- ── MENTIONS LÉGALES MODAL ─────────────────────────────────── -->
+<div id="mentions-overlay" onclick="closeMentions(event)">
+  <div class="mentions-card">
+    <button class="btn-close-mentions" onclick="document.getElementById('mentions-overlay').classList.remove('open')">✕</button>
+    <h2>Mentions légales</h2>
+
+    <h3>Éditeur du site</h3>
+    <p>Ce site est édité par <strong>Clément Treboutte</strong>, étudiant en Terminale Bac Pro CIEL, exerçant une activité de création de sites web en freelance.</p>
+    <p>📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a5c6c9c0c8c0cbd1d7c79495e5c2c8c4ccc98bc6cac8">[email&#160;protected]</a> — 📞 06 41 09 98 50</p>
+
+    <h3>Hébergement</h3>
+    <p>Ce site est hébergé sur <strong>GitHub Pages</strong>, service proposé par GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis.</p>
+
+    <h3>Propriété intellectuelle</h3>
+    <p>L'ensemble des contenus présents sur ce site (textes, images, code) sont la propriété exclusive de Clément Treboutte. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
+
+    <h3>Données personnelles</h3>
+    <p>Les informations collectées via le formulaire de contact (nom, email, téléphone, message) sont utilisées uniquement pour répondre à vos demandes. Elles ne sont ni vendues, ni transmises à des tiers. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données en contactant : <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="eb88878e868e859f9989dadbab8c868a8287c5888486">[email&#160;protected]</a></strong>.</p>
+
+    <h3>Cookies</h3>
+    <p>Ce site peut utiliser des cookies techniques nécessaires à son bon fonctionnement. Aucun cookie de tracking ou publicitaire n'est utilisé.</p>
+
+    <h3>Responsabilité</h3>
+    <p>Clément Treboutte s'efforce de maintenir les informations de ce site à jour et exactes, mais ne saurait être tenu responsable des erreurs ou omissions éventuelles.</p>
+  </div>
+</div>
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+  /* ── NAV ACTIVE ── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) cur = s.id; });
+    navLinks.forEach(a => {
+      a.style.color = (a.getAttribute('href') === '#'+cur && !a.classList.contains('nav-cta'))
+        ? 'var(--rust)' : '';
+    });
+  });
+
+  /* ── SCROLL ANIMATIONS AVANCÉES ── */
+  const animTargets = [
+    { sel: '.service-card',      cls: 'from-bottom' },
+    { sel: '.pricing-card',      cls: 'from-bottom' },
+    { sel: '.testi-card',        cls: 'scale-in'    },
+    { sel: '.process-step',      cls: 'from-bottom' },
+    { sel: '.portfolio-item',    cls: 'scale-in'    },
+    { sel: '.portfolio-featured',cls: 'from-bottom' },
+    { sel: '.section-title',     cls: 'from-left'   },
+    { sel: '.about-visual',      cls: 'from-left'   },
+    { sel: '.about-text',        cls: 'from-right'  },
+    { sel: '.contact-info',      cls: 'from-left'   },
+    { sel: '.contact-form',      cls: 'from-right'  },
+  ];
+
+  animTargets.forEach(({ sel, cls }) => {
+    document.querySelectorAll(sel).forEach((el, i) => {
+      if (!el.classList.contains('reveal')) {
+        el.classList.add('reveal', cls);
+        el.style.transitionDelay = (i * 0.08) + 's';
+      }
+    });
+  });
+
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* ── FAQ TOGGLE ── */
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  /* ── MENTIONS LÉGALES MODAL ── */
+  function closeMentions(e) {
+    if e.targ
+    if (e.key === 'Escape') {
+      const o = document.getElementById('mentions-overlay');
+      if (o) o.classList.remove('open');
+    }
+  };
+
+</script>
+</body>
+</html>

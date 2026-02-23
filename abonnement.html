@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abonnement Maintenance | Développeur Web</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+:root{
+  --ink:#0d1b2a;--cream:#f0f7ff;--warm:#cfe8fa;
+  --blue:#0ea5e9;--orange:#f97316;--muted:#4a6580;
+  --white:#ffffff;--indigo:#6366f1;--green:#22c55e;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.1rem 6%;display:flex;justify-content:space-between;align-items:center;background:rgba(240,247,255,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(14,165,233,.18);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;color:var(--blue);text-decoration:none;}
+.nav-back{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--ink);font-size:.85rem;font-weight:500;padding:.55rem 1.2rem;border:1.5px solid var(--warm);transition:all .2s;}
+.nav-back:hover{border-color:var(--blue);color:var(--blue);}
+
+.hero{padding:9rem 6% 3rem;text-align:center;}
+.badge{display:inline-block;background:linear-gradient(90deg,var(--orange),var(--indigo));color:#fff;font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:.4rem 1rem;margin-bottom:1.4rem;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:900;line-height:1.1;margin-bottom:1rem;}
+.hero h1 em{font-style:italic;background:linear-gradient(90deg,var(--orange),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero p{font-size:1rem;color:var(--muted);max-width:500px;margin:0 auto;line-height:1.8;}
+
+.wrap{max-width:1100px;margin:0 auto;padding:2rem 6% 5rem;}
+
+/* INFO STRIP */
+.info-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.5rem;}
+.info-box{background:var(--white);border:1px solid var(--warm);padding:1.4rem;text-align:center;}
+.info-box .ico{font-size:1.8rem;margin-bottom:.5rem;}
+.info-box strong{display:block;font-size:.95rem;font-weight:600;margin-bottom:.2rem;}
+.info-box span{font-size:.78rem;color:var(--muted);}
+
+/* CARDS GRID */
+.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem;}
+
+/* CARD */
+.card{background:var(--white);border:1px solid var(--warm);display:flex;flex-direction:column;}
+.card-header{padding:2rem;background:linear-gradient(135deg,#0d1b2a,#0f2944);border-bottom:3px solid var(--blue);}
+.card-header h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:.3rem;}
+.card-header .sub{font-size:.78rem;color:rgba(255,255,255,.45);font-weight:300;}
+.card-price{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--blue);line-height:1;margin-top:.8rem;}
+.card-period{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:.2rem;}
+.card-badge{display:inline-block;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);color:var(--green);font-size:.7rem;font-weight:500;padding:.25rem .7rem;margin-top:.5rem;}
+
+/* ANNUEL specifics */
+.card.annuel{border-top:3px solid var(--orange);}
+.card.annuel .card-header{background:linear-gradient(135deg,#1a0d06,#2d1a09);border-bottom-color:var(--orange);}
+.card.annuel .card-price{color:var(--orange);}
+.card.annuel .top-label{display:inline-block;background:linear-gradient(90deg,var(--orange),var(--indigo));color:#fff;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:.25rem .75rem;margin-bottom:.8rem;}
+.card.annuel .savings{display:inline-flex;align-items:center;gap:.4rem;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.3);color:var(--orange);font-size:.7rem;font-weight:500;padding:.25rem .7rem;margin-top:.5rem;}
+
+.card-body{padding:1.8rem;flex:1;}
+.features-label{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
+.features{list-style:none;display:flex;flex-direction:column;gap:.7rem;}
+.features li{display:flex;align-items:flex-start;gap:.7rem;font-size:.88rem;line-height:1.5;}
+.check{width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--indigo));display:flex;align-items:center;justify-content:center;color:#fff;font-size:.6rem;font-weight:700;flex-shrink:0;margin-top:.1rem;}
+.card.annuel .check{background:linear-gradient(135deg,var(--orange),var(--indigo));}
+
+.card-cta{padding:1.5rem 1.8rem;background:rgba(14,165,233,.03);border-top:1px solid var(--warm);display:flex;flex-direction:column;align-items:center;gap:.8rem;text-align:center;}
+.card.annuel .card-cta{background:rgba(249,115,22,.03);}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;color:#fff;text-decoration:none;padding:1rem 2rem;font-size:.9rem;font-weight:500;width:100%;transition:all .25s;border:none;cursor:pointer;font-family:inherit;}
+.btn-blue{background:linear-gradient(90deg,var(--blue),var(--indigo));}
+.btn-blue:hover{background:linear-gradient(90deg,var(--indigo),var(--blue));transform:translateY(-2px);box-shadow:0 8px 24px rgba(14,165,233,.3);}
+.btn-orange{background:linear-gradient(90deg,var(--orange),#e55300);}
+.btn-orange:hover{background:linear-gradient(90deg,#e55300,var(--orange));transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,.3);}
+
+.cta-note{font-size:.75rem;color:var(--muted);line-height:1.6;max-width:280px;}
+.badges{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;}
+.badges span{font-size:.7rem;color:var(--muted);}
+
+/* FAQ */
+.faq-wrap{margin-bottom:2rem;}
+.faq-wrap h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;margin-bottom:1rem;}
+.faq-wrap h2 em{font-style:italic;background:linear-gradient(90deg,var(--orange),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.faq-item{border:1px solid var(--warm);background:var(--white);margin-bottom:.6rem;overflow:hidden;}
+.faq-btn{width:100%;background:none;border:none;padding:1.1rem 1.4rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:500;color:var(--ink);}
+.faq-btn:hover{background:rgba(14,165,233,.04);}
+.faq-icon{font-size:1.2rem;color:var(--orange);transition:transform .3s;flex-shrink:0;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-ans{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;font-size:.87rem;color:var(--muted);line-height:1.75;padding:0 1.4rem;}
+.faq-item.open .faq-ans{max-height:200px;padding:.2rem 1.4rem 1.2rem;}
+
+footer{background:linear-gradient(90deg,#0d1b2a,#0f2944);color:rgba(255,255,255,.45);padding:1.5rem 6%;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;flex-wrap:wrap;gap:1rem;border-top:3px solid var(--orange);}
+footer a{font-family:'Playfair Display',serif;color:#fff;font-size:1rem;font-weight:900;text-decoration:none;}
+
+@media(max-width:750px){
+  .info-strip{grid-template-columns:1fr;}
+  .cards-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">&lt;/DevWeb&gt;</a>
+  <a class="nav-back" href="index.html">← Retour au site</a>
+</nav>
+
+<div class="hero">
+  <span class="badge">🔧 Abonnement maintenance</span>
+  <h1>Votre site toujours<br><em>à jour &amp; sans souci</em></h1>
+  <p>Je m'occupe de tout pendant que vous gérez votre commerce.</p>
+</div>
+
+<div class="wrap">
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-box"><div class="ico">⚡</div><strong>Modifications rapides</strong><span>Textes, photos, horaires sous 24h</span></div>
+    <div class="info-box"><div class="ico">🛡️</div><strong>Site surveillé</strong><span>Vérifications et corrections régulières</span></div>
+    <div class="info-box"><div class="ico">🤝</div><strong>Sans engagement</strong><span>Résiliable quand vous voulez</span></div>
+  </div>
+
+  <!-- CARDS -->
+  <div class="cards-grid">
+
+    <!-- MENSUEL -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Abonnement Mensuel</h2>
+        <div class="sub">Clément Treboutte · Développeur Web</div>
+        <div class="card-price">19€</div>
+        <div class="card-period">par mois · TTC</div>
+        <div class="card-badge">✅ Résiliable à tout moment</div>
+      </div>
+      <div class="card-body">
+        <div class="features-label">Ce qui est inclus</div>
+        <ul class="features">
+          <li><span class="check">✓</span><span>Modifications illimitées de contenu</span></li>
+          <li><span class="check">✓</span><span>Surveillance mensuelle du site</span></li>
+          <li><span class="check">✓</span><span>Corrections de bugs en priorité</span></li>
+          <li><span class="check">✓</span><span>Support email &amp; téléphone sous 24h</span></li>
+          <li><span class="check">✓</span><span>Petites améliorations visuelles</span></li>
+          <li><span class="check">✓</span><span>Résiliable fin de mois, sans frais</span></li>
+        </ul>
+      </div>
+      <div class="card-cta">
+        <a class="btn btn-blue" href="https://buy.stripe.com/test_3cIcMYcWFeBKbnc72j5Ne00" target="_blank" rel="noopener">
+          🔒 S'abonner — 19€/mois
+        </a>
+        <p class="cta-note">Résiliation par email ou SMS avant la fin du mois en cours.</p>
+        <div class="badges">
+          <span>🔒 Paiement sécurisé Stripe</span>
+          <span>💳 CB · Visa · Mastercard</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANNUEL -->
+    <div class="card annuel">
+      <div class="card-header">
+        <div class="top-label">⭐ Meilleure offre — 2 mois offerts</div>
+        <h2>Abonnement Annuel</h2>
+        <div class="sub">Clément Treboutte · Développeur Web</div>
+        <div class="card-price">200€</div>
+        <div class="card-period">par an · TTC</div>
+        <div class="savings">🎉 Économisez 28€ vs mensuel</div>
+      </div>
+      <div class="card-body">
+        <div class="features-label">Ce qui est inclus</div>
+        <ul class="features">
+          <li><span class="check">✓</span><span>Tout de la formule mensuelle</span></li>
+          <li><span class="check">✓</span><span>2 mois offerts (228€ → 200€)</span></li>
+          <li><span class="check">✓</span><span>Bilan annuel complet de votre site</span></li>
+          <li><span class="check">✓</span><span>1 refonte visuelle mineure offerte</span></li>
+          <li><span class="check">✓</span><span>Priorité absolue sur les demandes</span></li>
+          <li><span class="check">✓</span><span>Résiliable à la fin de l'année</span></li>
+        </ul>
+      </div>
+      <div class="card-cta">
+        <a class="btn btn-orange" href="https://buy.stripe.com/test_3cI00c4q9dxGezo86n5Ne01" target="_blank" rel="noopener">
+          🔒 S'abonner — 200€/an
+        </a>
+        <p class="cta-note">Paiement unique annuel. Résiliation par email avant la date anniversaire.</p>
+        <div class="badges">
+          <span>🔒 Paiement sécurisé Stripe</span>
+          <span>🎉 2 mois offerts</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-wrap">
+    <h2>Questions <em>fréquentes</em></h2>
+
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">Comment résilier mon abonnement ?<span class="faq-icon">+</span></button>
+      <div class="faq-ans">Envoyez un email à <strong>clementrb10@gmail.com</strong> ou un SMS au <strong>06 41 09 98 50</strong> avant la fin du mois (mensuel) ou avant la date anniversaire (annuel). Aucun frais supplémentaire.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">Combien de modifications puis-je demander ?<span class="faq-icon">+</span></button>
+      <div class="faq-ans">Les modifications de contenu sont <strong>illimitées</strong> : textes, photos, horaires, prix, numéros... Pour des fonctionnalités complexes, on en discute ensemble.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">Quand suis-je prélevé chaque mois ?<span class="faq-icon">+</span></button>
+      <div class="faq-ans">À la date anniversaire de votre souscription. Vous recevez un email de confirmation de Stripe avant chaque prélèvement.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">Mes paiements sont-ils sécurisés ?<span class="faq-icon">+</span></button>
+      <div class="faq-ans">Oui à 100%. Les paiements sont gérés par <strong>Stripe</strong>, l'un des systèmes les plus sécurisés au monde. Je n'ai jamais accès à vos coordonnées bancaires.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html">&lt;/DevWeb&gt;</a>
+  <span>© 2025 — Clément Treboutte · Développeur Web Freelance</span>
+  <span>✉️ clementrb10@gmail.com</span>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  var item = btn.closest('.faq-item');
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){ i.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
