@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Votre Développeur Web | Sites pour Artisans & Commerçants</title>
+<title>SiteWeb-Artisan | Créer votre site web professionnel</title>
+<meta name="description" content="Créez votre site web professionnel avec SiteWeb-Artisan. Sites vitrines pour artisans et commerçants à partir de 390€. Devis gratuit en 24h — Clément Treboutte, développeur web freelance.">
+<meta name="keywords" content="créer site web artisan, site web commerçant, site vitrine artisan, développeur web freelance, site web pas cher">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
 
@@ -65,10 +67,18 @@ nav {
 }
 
 .nav-logo {
-  font-family:'Playfair Display',serif;
-  font-size:1.25rem; font-weight:900;
-  color:var(--rust); letter-spacing:-.5px;
-  text-decoration:none;
+  font-family:'DM Sans',sans-serif;
+  font-size:1.1rem; font-weight:700;
+  text-decoration:none; letter-spacing:-.01em;
+  display:inline-flex; align-items:center; gap:.1rem;
+}
+.nav-logo .logo-site { color:var(--ink); }
+.nav-logo .logo-sep  { color:var(--rust); }
+.nav-logo .logo-art  {
+  background:linear-gradient(90deg,var(--rust),var(--indigo));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
 }
 
 .nav-links { display:flex; gap:2rem; list-style:none; }
@@ -760,49 +770,19 @@ footer .footer-logo {
 footer a { color:rgba(255,255,255,.45); text-decoration:none; transition:color .2s; }
 footer a:hover { color:var(--rust); }
 
-/* ── FAQ ─────────────────────────────────────────────────────── */
-.faq-list { display:flex; flex-direction:column; gap:.8rem; max-width:800px; }
 
-.faq-item {
-  border:1px solid var(--warm);
-  background:var(--white);
-  overflow:hidden;
-  transition:box-shadow .25s;
-}
-.faq-item:hover { box-shadow:0 6px 24px rgba(14,165,233,.1); }
 
-.faq-question {
-  width:100%; background:none; border:none;
-  padding:1.3rem 1.5rem;
-  display:flex; justify-content:space-between; align-items:center;
-  cursor:pointer; text-align:left;
-  font-family:'DM Sans',sans-serif;
-  font-size:.95rem; font-weight:500; color:var(--ink);
-  transition:background .2s;
-}
-.faq-question:hover { background:rgba(14,165,233,.04); }
 
-.faq-icon {
-  font-size:1.3rem; flex-shrink:0;
-  background:linear-gradient(90deg,var(--rust),var(--indigo));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  transition:transform .3s ease;
-  font-weight:300; line-height:1;
-}
-.faq-item.open .faq-icon { transform:rotate(45deg); }
 
-.faq-answer {
-  max-height:0; overflow:hidden;
-  transition:max-height .45s ease, padding .3s ease;
-  padding:0 1.5rem;
-  font-size:.9rem; color:var(--muted); line-height:1.8;
-}
-.faq-item.open .faq-answer {
-  max-height:600px;
-  padding:.2rem 1.5rem 1.3rem;
-}
+
+
+
+
+
+
+
+
+
 
 /* ── MENTIONS LÉGALES MODAL ──────────────────────────────────── */
 #mentions-overlay {
@@ -947,8 +927,8 @@ footer a:hover { color:var(--rust); }
   .form-row { grid-template-columns:1fr; }
 
   /* FAQ */
-  .faq-list { max-width:100%; }
-  .faq-question { font-size:.88rem; padding:1rem 1.2rem; }
+  
+  
 
   /* Footer */
   footer { flex-direction:column; text-align:center; gap:.8rem; }
@@ -966,13 +946,45 @@ footer a:hover { color:var(--rust); }
   .section { padding:3rem 4%; }
 }
 
+
+/* ── FAQ ─────────────────────────────────────────────────────── */
+.faq-list, .faq-wrap { max-width:800px; }
+.faq-item {
+  border:1px solid #cfe8fa;
+  background:#ffffff;
+  margin-bottom:.6rem;
+}
+.faq-btn, .faq-question {
+  width:100%; background:none; border:none;
+  padding:1.2rem 1.4rem;
+  display:flex; justify-content:space-between; align-items:center;
+  cursor:pointer; text-align:left;
+  font-family:'DM Sans',sans-serif;
+  font-size:.92rem; font-weight:500; color:#0d1b2a;
+}
+.faq-btn:hover, .faq-question:hover { background:rgba(14,165,233,.05); }
+.faq-icon, .faq-plus {
+  font-size:1.4rem; flex-shrink:0; color:#f97316;
+  transition:transform .3s; line-height:1; margin-left:1rem;
+}
+.faq-item.open .faq-icon,
+.faq-item.open .faq-plus { transform:rotate(45deg); }
+.faq-ans, .faq-answer, .faq-a {
+  display:none;
+  padding:.2rem 1.4rem 1.2rem;
+  font-size:.88rem; color:#4a6580; line-height:1.8;
+}
+.faq-item.open .faq-ans,
+.faq-item.open .faq-answer,
+.faq-item.open .faq-a { display:block; }
+
 </style>
 </head>
 <body>
 
 <!-- ── NAVIGATION ──────────────────────────────────────────── -->
 <nav>
-  <a class="nav-logo" href="#">&lt;/DevWeb&gt;</a>
+  <a class="nav-logo" href="#"><span class="logo-site">SiteWeb</span><span class="logo-sep">-</span><span class="logo-art">Artisan</span></a>
   <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -990,7 +1002,7 @@ footer a:hover { color:var(--rust); }
 <section class="hero">
   <div class="hero-bg-word">Web</div>
   <div class="hero-content">
-    <span class="hero-badge">✦ Développeur Web Freelance</span>
+    <span class="hero-badge">✦ SiteWeb-Artisan.fr</span>
     <h1>Votre boutique<br>mérite un beau<br><em>site web.</em></h1>
     <p class="hero-desc">
       Je crée des sites professionnels pour les artisans et commerçants. Visibles, modernes, faits sur-mesure — pour que vos clients vous trouvent et vous fassent confiance.
@@ -1234,7 +1246,7 @@ footer a:hover { color:var(--rust); }
 
     <div class="pricing-card">
       <h3>Starter</h3>
-      <div class="pricing-price">149€</div>
+      <div class="pricing-price">390€</div>
       <div class="pricing-period">Paiement unique</div>
       <p class="pricing-desc">Idéal pour démarrer avec une présence en ligne simple et professionnelle.</p>
       <ul class="pricing-features">
@@ -1244,13 +1256,21 @@ footer a:hover { color:var(--rust); }
         <li class="pricing-feature">Formulaire de contact</li>
         <li class="pricing-feature">Livraison en 5 jours</li>
       </ul>
-      <a class="btn-pricing outline" href="https://paypal.me/clementreboutte/149EUR" target="_blank" rel="noopener">Payer 149€ via PayPal →</a>
+      <p style="font-size:.72rem;text-align:center;color:var(--muted);margin-bottom:.6rem;letter-spacing:.05em;text-transform:uppercase;">Choisir votre moyen de paiement</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
+        <a class="btn-pricing outline" href="https://paypal.me/clementreboutte/390EUR" target="_blank" rel="noopener" style="font-size:.78rem;padding:.7rem .5rem;text-align:center;">
+          <span style="display:block;font-size:1rem;margin-bottom:.2rem;">🅿️</span>PayPal
+        </a>
+        <a class="btn-pricing outline" href="https://buy.stripe.com/test_9B67sEcWFctCfDs2M35Ne04" target="_blank" rel="noopener" style="font-size:.78rem;padding:.7rem .5rem;text-align:center;border-color:var(--indigo);color:var(--indigo);" onmouseover="this.style.background='var(--indigo)';this.style.color='white';" onmouseout="this.style.background='';this.style.color='var(--indigo)';">
+          <span style="display:block;font-size:1rem;margin-bottom:.2rem;">💳</span>Stripe
+        </a>
+      </div>
     </div>
 
     <div class="pricing-card featured">
       <span class="featured-label">⭐ Populaire</span>
       <h3>Professionnel</h3>
-      <div class="pricing-price">299€</div>
+      <div class="pricing-price">690€</div>
       <div class="pricing-period">Paiement unique</div>
       <p class="pricing-desc">La formule complète pour une présence en ligne solide et mémorable.</p>
       <ul class="pricing-features">
@@ -1262,7 +1282,15 @@ footer a:hover { color:var(--rust); }
         <li class="pricing-feature">Google Maps intégré</li>
         <li class="pricing-feature">Livraison en 7 jours</li>
       </ul>
-      <a class="btn-pricing on-dark" href="https://paypal.me/clementreboutte/299EUR" target="_blank" rel="noopener">Payer 299€ via PayPal →</a>
+      <p style="font-size:.72rem;text-align:center;color:rgba(255,255,255,.55);margin-bottom:.6rem;letter-spacing:.05em;text-transform:uppercase;">Choisir votre moyen de paiement</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
+        <a class="btn-pricing on-dark" href="https://paypal.me/clementreboutte/690EUR" target="_blank" rel="noopener" style="font-size:.78rem;padding:.7rem .5rem;text-align:center;">
+          <span style="display:block;font-size:1rem;margin-bottom:.2rem;">🅿️</span>PayPal
+        </a>
+        <a class="btn-pricing on-dark" href="https://buy.stripe.com/test_00wdR22i1gJScrg2M35Ne05" target="_blank" rel="noopener" style="font-size:.78rem;padding:.7rem .5rem;text-align:center;background:linear-gradient(90deg,var(--indigo),#4f46e5);">
+          <span style="display:block;font-size:1rem;margin-bottom:.2rem;">💳</span>Stripe
+        </a>
+      </div>
     </div>
 
     <div class="pricing-card">
@@ -1466,7 +1494,7 @@ footer a:hover { color:var(--rust); }
   <div class="faq-list">
 
     <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)">
+      <button class="faq-question">
         Combien de temps faut-il pour créer mon site ?
         <span class="faq-icon">+</span>
       </button>
@@ -1476,13 +1504,13 @@ footer a:hover { color:var(--rust); }
     </div>
 
     <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)">
+      <button class="faq-question">
         Est-ce que je pourrai modifier mon site moi-même après ?
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
         Oui, absolument ! Je vous livre les fichiers complets et vous explique comment modifier vous-même les textes, photos ou horaires si vous le souhaitez.<br><br>
-        Cependant, si vous préférez ne pas vous en occuper, je propose un <strong>abonnement mensuel de maintenance à 19€/mois</strong> qui comprend :
+        Cependant, si vous préférez ne pas vous en occuper, je propose un <strong>abonnement mensuel de maintenance à 29€/mois</strong> qui comprend :
         <ul style="margin:.6rem 0 0 1.2rem;display:flex;flex-direction:column;gap:.3rem;">
           <li>Modifications illimitées de contenu (textes, photos, horaires…)</li>
           <li>Surveillance et mise à jour du site</li>
@@ -1494,7 +1522,7 @@ footer a:hover { color:var(--rust); }
     </div>
 
     <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)">
+      <button class="faq-question">
         Est-ce que mon site sera visible sur Google ?
         <span class="faq-icon">+</span>
       </button>
@@ -1504,7 +1532,7 @@ footer a:hover { color:var(--rust); }
     </div>
 
     <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)">
+      <button class="faq-question">
         Est-ce que le site fonctionnera sur mobile ?
         <span class="faq-icon">+</span>
       </button>
@@ -1514,7 +1542,7 @@ footer a:hover { color:var(--rust); }
     </div>
 
     <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)">
+      <button class="faq-question">
         Que se passe-t-il après le paiement ?
         <span class="faq-icon">+</span>
       </button>
@@ -1524,7 +1552,7 @@ footer a:hover { color:var(--rust); }
     </div>
 
     <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)">
+      <button class="faq-question">
         Je n'ai pas de logo ni de photos, c'est un problème ?
         <span class="faq-icon">+</span>
       </button>
@@ -1538,8 +1566,8 @@ footer a:hover { color:var(--rust); }
 
 <!-- ── FOOTER ────────────────────────────────────────────────── -->
 <footer>
-  <a class="footer-logo" href="#">&lt;/DevWeb&gt;</a>
-  <span>© 2025 — Développeur Web Freelance · Étudiant Bac Pro CIEL</span>
+  <a class="footer-logo" href="#"><span class="logo-site">SiteWeb</span><span class="logo-sep">-</span><span class="logo-art">Artisan</span></a>
+  <span>© 2025 — SiteWeb-Artisan.fr · Étudiant Bac Pro CIEL</span>
   <button onclick="document.getElementById('mentions-overlay').classList.add('open')"
     style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,.45);font-size:.8rem;font-family:inherit;text-decoration:underline;">
     Mentions légales
@@ -1576,7 +1604,10 @@ footer a:hover { color:var(--rust); }
 </div>
 
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+    if (!isOpen) item.classList.add('open');
+  });
+
 
   /* ── NAV HAMBURGER ── */
   var navToggle = document.getElementById('nav-toggle');
@@ -1637,13 +1668,7 @@ footer a:hover { color:var(--rust); }
 
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-  /* ── FAQ TOGGLE ── */
-  function toggleFaq(btn) {
-    var item = btn.closest('.faq-item');
-    var isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(function(i) {
-      i.classList.remove('open');
-    });
+  );
     if (!isOpen) item.classList.add('open');
   }
 
@@ -1660,6 +1685,19 @@ footer a:hover { color:var(--rust); }
     }
   });
 
+
+  
+<script>
+(function() {
+  document.querySelectorAll('.faq-btn, .faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i) {
+        i.classList.remove('open');
+      });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+})();
 </script>
-</body>
-</html>
