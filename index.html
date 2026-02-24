@@ -945,6 +945,11 @@ footer a:hover { color:var(--rust); }
   .faq-list { max-width:100%; }
   .faq-question { font-size:.88rem; padding:1rem 1.1rem; }
 
+  /* Avant/Après */
+  #avant-apres div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
   /* Footer */
   footer { flex-direction:column; text-align:center; gap:.8rem; padding:1.5rem 5%; }
 }
@@ -1203,6 +1208,46 @@ footer a:hover { color:var(--rust); }
 
     </div>
 
+    <!-- ★ VRAI SITE — Boulangerie Au Pain Doré ★ -->
+    <div class="portfolio-featured">
+
+      <div class="portfolio-iframe-wrap" style="display:flex;flex-direction:column;">
+        <div class="portfolio-iframe-bar">
+          <div class="pf-dot r"></div><div class="pf-dot y"></div><div class="pf-dot g"></div>
+          <span class="pf-url">aupaindore-amiens.fr</span>
+        </div>
+        <div class="portfolio-iframe-container" style="flex:1;position:relative;overflow:hidden;height:300px;background:#f7efe0;">
+          <iframe
+            src="boulangerie-au-pain-dore.html"
+            title="Site Boulangerie Au Pain Doré"
+            loading="lazy"
+            style="width:200%;height:200%;transform:scale(.5);transform-origin:top left;border:none;pointer-events:none;display:block;">
+          </iframe>
+          <div class="iframe-click-layer" style="position:absolute;inset:0;z-index:5;cursor:pointer;"
+               onclick="window.open('boulangerie-au-pain-dore.html','_blank')"></div>
+        </div>
+      </div>
+
+      <div class="portfolio-featured-info">
+        <div>
+          <span class="pfeat-tag">✦ Site vitrine</span>
+        </div>
+        <div class="pfeat-realsite" style="background:rgba(200,135,58,.15);color:#c8873a;">Boulangerie</div>
+        <h3>Au Pain Doré</h3>
+        <p>Site vitrine pour boulangerie artisanale. Design magazine élégant, galerie produits avec photos réelles, horaires, formulaire de commandes spéciales.</p>
+        <div class="pfeat-techs">
+          <span class="pfeat-tech">HTML5</span>
+          <span class="pfeat-tech">CSS3</span>
+          <span class="pfeat-tech">Design Editorial</span>
+          <span class="pfeat-tech">Responsive</span>
+        </div>
+        <a class="btn-visit-site" href="boulangerie-au-pain-dore.html" target="_blank" rel="noopener">
+          Visiter le site →
+        </a>
+      </div>
+
+    </div>
+
     <!-- Maquette fictive 1 -->
     <div class="portfolio-item">
       <div class="portfolio-mockup plombier">
@@ -1252,6 +1297,158 @@ footer a:hover { color:var(--rust); }
     </div>
 
   </div>
+</section>
+
+<!-- ── AVANT / APRÈS ─────────────────────────────────────────── -->
+<section class="section" id="avant-apres">
+  <span class="section-label">La différence</span>
+  <h2 class="section-title">Avant <em>vs</em> Après</h2>
+  <p class="section-desc">Un exemple concret de ce que je peux faire pour votre commerce. À gauche, un site vieillissant — à droite, le même refait à neuf.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:960px;align-items:start;">
+
+    <!-- AVANT -->
+    <div>
+      <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem;">
+        <span style="background:#ef4444;color:white;font-size:.7rem;font-weight:700;padding:.25rem .7rem;letter-spacing:.08em;text-transform:uppercase;">✕ Avant</span>
+        <span style="font-size:.8rem;color:var(--muted);">Site années 2000</span>
+      </div>
+      <div style="border:2px solid #ef4444;overflow:hidden;font-family:Arial,sans-serif;background:#c0c0c0;">
+        <!-- Fausse barre navigateur old -->
+        <div style="background:#808080;padding:.4rem .6rem;display:flex;align-items:center;gap:.4rem;">
+          <div style="width:12px;height:12px;background:#dfdfdf;border:1px solid #999;"></div>
+          <div style="width:12px;height:12px;background:#dfdfdf;border:1px solid #999;"></div>
+          <div style="background:#fff;flex:1;padding:.15rem .4rem;font-size:.65rem;color:#333;border:1px inset #999;">http://plomberie-martin.fr.st</div>
+        </div>
+        <!-- Contenu vieux site -->
+        <div style="background:#c0c0c0;padding:.8rem;">
+          <!-- Header old -->
+          <div style="background:#000080;color:yellow;text-align:center;padding:.6rem;font-size:.9rem;font-weight:bold;border:3px outset #fff;margin-bottom:.6rem;">
+            ★ PLOMBERIE MARTIN ★<br>
+            <span style="font-size:.6rem;color:#00ff00;">~~ Votre plombier de confiance ~~</span>
+          </div>
+          <!-- Nav old -->
+          <div style="display:flex;gap:.2rem;margin-bottom:.6rem;flex-wrap:wrap;">
+            <a style="background:#808080;color:white;padding:.2rem .5rem;font-size:.6rem;text-decoration:none;border:2px outset #fff;">ACCUEIL</a>
+            <a style="background:#808080;color:white;padding:.2rem .5rem;font-size:.6rem;text-decoration:none;border:2px outset #fff;">SERVICES</a>
+            <a style="background:#808080;color:white;padding:.2rem .5rem;font-size:.6rem;text-decoration:none;border:2px outset #fff;">CONTACT</a>
+          </div>
+          <!-- Body old -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;">
+            <div>
+              <div style="background:#000080;color:white;font-size:.6rem;padding:.2rem .4rem;font-weight:bold;">BIENVENUE!!</div>
+              <div style="background:white;padding:.4rem;font-size:.58rem;color:#000;line-height:1.5;border:1px inset #999;">
+                Bienvenu sur le site de la plomberie Martin!!<br>
+                Nous sommes la depuis <b>1987</b>!!<br><br>
+                <marquee style="color:red;font-size:.6rem;">★ DEVIS GRATUIT ★ APPELEZ NOUS ★</marquee>
+              </div>
+              <div style="background:#ffff00;border:2px solid red;padding:.3rem;margin-top:.4rem;font-size:.58rem;text-align:center;color:red;font-weight:bold;">
+                ☎ 03.22.XX.XX.XX<br>
+                <span style="font-size:.5rem;color:#000;">Lun-Sam 8h-18h</span>
+              </div>
+            </div>
+            <div>
+              <div style="background:#000080;color:white;font-size:.6rem;padding:.2rem .4rem;font-weight:bold;">NOS SERVICES</div>
+              <div style="background:white;padding:.4rem;font-size:.58rem;color:#000;border:1px inset #999;">
+                &gt; Debouchage<br>
+                &gt; Reparation fuite<br>
+                &gt; Chaudiere<br>
+                &gt; Salle de bain<br>
+                &gt; Urgence 24h<br>
+              </div>
+              <div style="margin-top:.4rem;text-align:center;">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='40'%3E%3Crect width='60' height='40' fill='%23ddd'/%3E%3Ctext x='50%25' y='50%25' font-size='8' text-anchor='middle' dy='.3em' fill='%23999'%3Ephoto.gif%3C/text%3E%3C/svg%3E" alt="photo" style="border:2px inset #999;">
+              </div>
+            </div>
+          </div>
+          <!-- Footer old -->
+          <div style="background:#000080;color:#00ff00;text-align:center;font-size:.55rem;padding:.3rem;margin-top:.5rem;border:2px inset #999;">
+            © 2004 Plomberie Martin - Optimisé pour Internet Explorer 6 - 800x600
+          </div>
+        </div>
+      </div>
+      <!-- Badges problèmes -->
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.7rem;">
+        <span style="background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-size:.68rem;padding:.2rem .6rem;">✕ Pas mobile</span>
+        <span style="background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-size:.68rem;padding:.2rem .6rem;">✕ Invisible sur Google</span>
+        <span style="background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-size:.68rem;padding:.2rem .6rem;">✕ Design dépassé</span>
+        <span style="background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-size:.68rem;padding:.2rem .6rem;">✕ Pas de contact facile</span>
+      </div>
+    </div>
+
+    <!-- APRÈS -->
+    <div>
+      <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem;">
+        <span style="background:#22c55e;color:white;font-size:.7rem;font-weight:700;padding:.25rem .7rem;letter-spacing:.08em;text-transform:uppercase;">✓ Après</span>
+        <span style="font-size:.8rem;color:var(--muted);">Site moderne par SiteWeb-Artisan</span>
+      </div>
+      <div style="border:2px solid #22c55e;overflow:hidden;font-family:'DM Sans',sans-serif;background:#f0f7ff;">
+        <!-- Fausse barre navigateur moderne -->
+        <div style="background:#1e293b;padding:.4rem .8rem;display:flex;align-items:center;gap:.5rem;">
+          <div style="display:flex;gap:.3rem;">
+            <div style="width:10px;height:10px;background:#ef4444;border-radius:50%;"></div>
+            <div style="width:10px;height:10px;background:#f59e0b;border-radius:50%;"></div>
+            <div style="width:10px;height:10px;background:#22c55e;border-radius:50%;"></div>
+          </div>
+          <div style="background:#334155;flex:1;padding:.2rem .6rem;font-size:.62rem;color:#94a3b8;border-radius:4px;">🔒 plomberie-martin.fr</div>
+        </div>
+        <!-- Contenu site moderne -->
+        <div style="background:#0f172a;">
+          <!-- Nav moderne -->
+          <div style="padding:.5rem 1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.08);">
+            <span style="color:#38bdf8;font-size:.72rem;font-weight:700;">Plomberie Martin</span>
+            <div style="display:flex;gap:.6rem;">
+              <span style="color:#94a3b8;font-size:.55rem;">Services</span>
+              <span style="color:#94a3b8;font-size:.55rem;">Tarifs</span>
+              <span style="background:#f97316;color:white;font-size:.55rem;padding:.15rem .45rem;border-radius:2px;">Contact</span>
+            </div>
+          </div>
+          <!-- Hero moderne -->
+          <div style="padding:1rem 1rem .8rem;text-align:center;">
+            <div style="display:inline-block;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3);color:#38bdf8;font-size:.58rem;padding:.2rem .6rem;margin-bottom:.5rem;letter-spacing:.08em;">✦ PLOMBIER CERTIFIÉ AMIENS</div>
+            <div style="color:white;font-size:.85rem;font-weight:700;line-height:1.3;margin-bottom:.4rem;">Votre plombier<br><span style="background:linear-gradient(90deg,#38bdf8,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">de confiance</span></div>
+            <div style="color:#94a3b8;font-size:.58rem;margin-bottom:.7rem;">Intervention rapide · Devis gratuit · Disponible 24h/7j</div>
+            <div style="display:flex;gap:.4rem;justify-content:center;">
+              <span style="background:linear-gradient(90deg,#f97316,#ef4444);color:white;font-size:.6rem;padding:.3rem .7rem;">☎ Appeler maintenant</span>
+              <span style="border:1px solid rgba(255,255,255,.2);color:white;font-size:.6rem;padding:.3rem .7rem;">Devis gratuit →</span>
+            </div>
+          </div>
+          <!-- Cards services -->
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;padding:.4rem 1rem .8rem;">
+            <div style="background:rgba(255,255,255,.05);padding:.5rem;text-align:center;">
+              <div style="font-size:.9rem;margin-bottom:.2rem;">🚰</div>
+              <div style="color:white;font-size:.58rem;font-weight:600;">Débouchage</div>
+              <div style="color:#94a3b8;font-size:.5rem;">Urgent 24h</div>
+            </div>
+            <div style="background:rgba(255,255,255,.05);padding:.5rem;text-align:center;">
+              <div style="font-size:.9rem;margin-bottom:.2rem;">🔧</div>
+              <div style="color:white;font-size:.58rem;font-weight:600;">Réparation</div>
+              <div style="color:#94a3b8;font-size:.5rem;">Fuite & dégâts</div>
+            </div>
+            <div style="background:rgba(255,255,255,.05);padding:.5rem;text-align:center;">
+              <div style="font-size:.9rem;margin-bottom:.2rem;">🏠</div>
+              <div style="color:white;font-size:.58rem;font-weight:600;">Salle de bain</div>
+              <div style="color:#94a3b8;font-size:.5rem;">Rénovation complète</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Badges avantages -->
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.7rem;">
+        <span style="background:#f0fdf4;border:1px solid #86efac;color:#16a34a;font-size:.68rem;padding:.2rem .6rem;">✓ 100% mobile</span>
+        <span style="background:#f0fdf4;border:1px solid #86efac;color:#16a34a;font-size:.68rem;padding:.2rem .6rem;">✓ Visible sur Google</span>
+        <span style="background:#f0fdf4;border:1px solid #86efac;color:#16a34a;font-size:.68rem;padding:.2rem .6rem;">✓ Design moderne</span>
+        <span style="background:#f0fdf4;border:1px solid #86efac;color:#16a34a;font-size:.68rem;padding:.2rem .6rem;">✓ Contact en 1 clic</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a class="btn-dark" href="devis.html">Refaire mon site →</a>
+  </div>
+
 </section>
 
 <!-- ── TARIFS ────────────────────────────────────────────────── -->
@@ -1729,6 +1926,51 @@ window.addEventListener('DOMContentLoaded', function() {
 
 });
 </script>
+<!-- ── WHATSAPP FLOTTANT ── -->
+<a href="https://wa.me/33641099850?text=Bonjour%20Cl%C3%A9ment%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20cr%C3%A9ation%20d%27un%20site%20web%20pour%20mon%20activit%C3%A9." 
+   target="_blank" rel="noopener" 
+   id="whatsapp-btn"
+   aria-label="Contacter sur WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="28" height="28">
+    <path fill="#fff" d="M4.9 43.3l2.7-9.8C5.5 30.7 4.5 27.4 4.5 24 4.5 13.2 13.2 4.5 24 4.5S43.5 13.2 43.5 24 34.8 43.5 24 43.5c-3.3 0-6.4-.9-9.1-2.4L4.9 43.3z"/>
+    <path fill="#25D366" d="M24 7.5C14.9 7.5 7.5 14.9 7.5 24c0 3.1.9 6.1 2.5 8.7l.4.7-1.8 6.5 6.7-1.7.7.4c2.5 1.5 5.4 2.3 8.3 2.3C33.1 40.9 40.5 33.5 40.5 24S33.1 7.5 24 7.5z"/>
+    <path fill="#fff" d="M19.3 16.1c-.4-.9-.8-.9-1.2-.9h-1c-.4 0-.9.1-1.4.7-.5.5-1.8 1.8-1.8 4.3s1.9 5 2.1 5.4c.3.4 3.7 5.8 9 7.9 4.4 1.7 5.3 1.4 6.3 1.3 1-.1 3.1-1.3 3.6-2.5.4-1.2.4-2.3.3-2.5-.1-.2-.5-.4-.9-.6-.5-.2-3.1-1.5-3.5-1.7-.5-.2-.8-.2-1.2.3-.4.5-1.4 1.7-1.7 2.1-.3.4-.6.4-1.1.1-.5-.2-2-.7-3.8-2.3-1.4-1.2-2.3-2.8-2.6-3.2-.3-.5 0-.7.2-.9l.7-.8c.2-.3.3-.5.4-.8.1-.3 0-.6-.1-.9-.2-.3-1.1-2.8-1.6-3.9z"/>
+  </svg>
+  <span id="wa-tooltip">Discutons sur WhatsApp !</span>
+</a>
+
+<style>
+#whatsapp-btn {
+  position:fixed; bottom:1.5rem; right:1.5rem; z-index:999;
+  width:58px; height:58px; border-radius:50%;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.5);
+  text-decoration:none;
+  animation: wa-pulse 2.5s infinite;
+}
+#whatsapp-btn:hover { transform:scale(1.08); box-shadow:0 6px 28px rgba(37,211,102,.6); }
+@keyframes wa-pulse {
+  0%,100% { box-shadow:0 4px 20px rgba(37,211,102,.5); }
+  50%      { box-shadow:0 4px 32px rgba(37,211,102,.8); }
+}
+#wa-tooltip {
+  position:absolute; right:70px; bottom:50%;
+  transform:translateY(50%);
+  background:#0d1b2a; color:#fff;
+  font-size:.75rem; white-space:nowrap;
+  padding:.4rem .8rem; border-radius:4px;
+  opacity:0; pointer-events:none;
+  transition:opacity .2s;
+}
+#wa-tooltip::after {
+  content:''; position:absolute; right:-6px; top:50%;
+  transform:translateY(-50%);
+  border:6px solid transparent;
+  border-left-color:#0d1b2a; border-right:none;
+}
+#whatsapp-btn:hover #wa-tooltip { opacity:1; }
+</style>
+
 </body>
 </html>
-
