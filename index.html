@@ -843,16 +843,12 @@ footer a:hover { color:var(--rust); }
 
 /* ── RESPONSIVE ──────────────────────────────────────────────── */
 
-/* Hamburger button */
+/* Hamburger */
 .nav-toggle {
-  display:none;
-  flex-direction:column; gap:5px;
-  background:none; border:none; cursor:pointer; padding:.4rem;
+  display:none; flex-direction:column; gap:5px;
+  background:none; border:none; cursor:pointer; padding:.4rem; z-index:300;
 }
-.nav-toggle span {
-  display:block; width:24px; height:2px;
-  background:var(--ink); transition:all .3s;
-}
+.nav-toggle span { display:block; width:24px; height:2px; background:var(--ink); transition:all .3s; }
 .nav-toggle.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
 .nav-toggle.open span:nth-child(2) { opacity:0; }
 .nav-toggle.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
@@ -863,89 +859,95 @@ footer a:hover { color:var(--rust); }
   .hero-bg-word { font-size:30vw; }
   .process-grid { grid-template-columns:1fr 1fr; }
   .process-step:nth-child(2) { border-right:none; }
-  .process-step:nth-child(3),
-  .process-step:nth-child(4) { border-top:1px solid var(--warm); }
+  .process-step:nth-child(3), .process-step:nth-child(4) { border-top:1px solid var(--warm); }
   .about-grid { grid-template-columns:1fr; }
   .about-visual { max-width:320px; }
-  .contact-grid { grid-template-columns:1fr; }
+  .contact-grid { grid-template-columns:1fr; gap:2rem; }
   .portfolio-featured { grid-template-columns:1fr; }
+  .pricing-grid { grid-template-columns:1fr; }
 }
 
 @media (max-width:700px) {
-  /* Nav mobile */
-  .nav-toggle { display:flex; z-index:300; }
+  /* Nav */
+  .nav-toggle { display:flex; }
   .nav-links {
-    display:none;
-    position:fixed; top:0; left:0; right:0; bottom:0;
+    display:none; position:fixed; top:0; left:0; right:0; bottom:0;
     background:rgba(240,247,255,.98);
     flex-direction:column; align-items:center; justify-content:center;
-    gap:2rem; z-index:250;
+    gap:2rem; z-index:250; list-style:none;
   }
   .nav-links.open { display:flex; }
   .nav-links a { font-size:1.1rem; }
   .nav-links .nav-cta { padding:.8rem 2rem; }
+  nav { padding:1rem 5%; }
 
   /* Hero */
-  .hero { padding:7rem 5% 4rem; text-align:center; }
-  .hero h1 { font-size:clamp(2rem,8vw,3rem); }
-  .hero-btns { flex-direction:column; align-items:stretch; }
+  .hero { padding:6rem 5% 3rem; text-align:center; }
+  .hero h1 { font-size:2rem; }
+  .hero-desc { font-size:.92rem; }
+  .hero-btns { flex-direction:column; align-items:stretch; gap:.8rem; }
   .hero-btns a { text-align:center; justify-content:center; }
-  .hero-badge { display:inline-block; }
 
   /* Sections */
-  .section { padding:3.5rem 5%; }
-  .section-title { font-size:clamp(1.6rem,6vw,2.4rem); }
+  .section { padding:3rem 5%; }
+  .section-title { font-size:1.8rem; }
 
   /* Services */
   .services-grid { grid-template-columns:1fr; }
 
   /* Process */
   .process-grid { grid-template-columns:1fr; }
-  .process-step { border-right:none !important; border-bottom:1px solid var(--warm); }
+  .process-step { border-right:none !important; border-bottom:1px solid var(--warm); padding:1.5rem; }
   .process-step:last-child { border-bottom:none; }
 
   /* Portfolio */
   .portfolio-grid { grid-template-columns:1fr; }
   .portfolio-featured { grid-template-columns:1fr; }
   .portfolio-featured-info { padding:1.5rem; }
+  .mock-cards { grid-template-columns:1fr 1fr; }
 
   /* Tarifs */
   .pricing-grid { grid-template-columns:1fr; }
-  .pricing-card { margin-bottom:0; }
   .pricing-card[style*="grid-column"] { grid-column:1 !important; max-width:100% !important; }
+  .pricing-card div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
 
   /* About */
-  .about-grid { grid-template-columns:1fr; }
+  .about-grid { grid-template-columns:1fr; gap:2rem; }
   .about-visual { max-width:100%; }
   .about-avatar { aspect-ratio:3/2; font-size:4rem; }
+  .stats-row { grid-template-columns:1fr 1fr; gap:.8rem; }
+  .badge-row { justify-content:center; flex-wrap:wrap; }
 
-  /* Témoignages */
+  /* Testi */
   .testi-grid { grid-template-columns:1fr; }
 
   /* Contact */
-  .contact-grid { grid-template-columns:1fr; }
+  .contact-grid { grid-template-columns:1fr; gap:2rem; }
   .form-row { grid-template-columns:1fr; }
+  .contact-info h2 { font-size:1.8rem; }
 
   /* FAQ */
-  
-  
+  .faq-list { max-width:100%; }
+  .faq-question { font-size:.88rem; padding:1rem 1.1rem; }
 
   /* Footer */
-  footer { flex-direction:column; text-align:center; gap:.8rem; }
-
-  /* Stats */
-  .stats-row { grid-template-columns:1fr 1fr; }
-  .badge-row { justify-content:center; }
+  footer { flex-direction:column; text-align:center; gap:.8rem; padding:1.5rem 5%; }
 }
 
 @media (max-width:420px) {
-  .hero h1 { font-size:1.9rem; }
-  .btn-dark, .btn-outline { padding:.85rem 1.4rem; font-size:.82rem; }
+  .hero { padding:5.5rem 4% 2.5rem; }
+  .hero h1 { font-size:1.75rem; }
+  .section { padding:2.5rem 4%; }
+  .section-title { font-size:1.5rem; }
+  .btn-dark, .btn-outline { padding:.8rem 1rem; font-size:.82rem; }
   .stats-row { grid-template-columns:1fr; }
-  nav { padding:1rem 4%; }
-  .section { padding:3rem 4%; }
+  .pricing-price { font-size:2.5rem; }
+  nav { padding:.9rem 4%; }
 }
 
+
+.pay-btns { display:grid; grid-template-columns:1fr 1fr; gap:.6rem; }
+@media(max-width:400px) { .pay-btns { grid-template-columns:1fr; } }
 
 /* ── FAQ ─────────────────────────────────────────────────────── */
 .faq-list, .faq-wrap { max-width:800px; }
@@ -1257,7 +1259,7 @@ footer a:hover { color:var(--rust); }
         <li class="pricing-feature">Livraison en 5 jours</li>
       </ul>
       <p style="font-size:.72rem;text-align:center;color:var(--muted);margin-bottom:.6rem;letter-spacing:.05em;text-transform:uppercase;">Choisir votre moyen de paiement</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
+      <div class="pay-btns">
         <a class="btn-pricing outline" href="https://paypal.me/clementreboutte/390EUR" target="_blank" rel="noopener" style="font-size:.78rem;padding:.7rem .5rem;text-align:center;">
           <span style="display:block;font-size:1rem;margin-bottom:.2rem;">🅿️</span>PayPal
         </a>
@@ -1283,7 +1285,7 @@ footer a:hover { color:var(--rust); }
         <li class="pricing-feature">Livraison en 7 jours</li>
       </ul>
       <p style="font-size:.72rem;text-align:center;color:rgba(255,255,255,.55);margin-bottom:.6rem;letter-spacing:.05em;text-transform:uppercase;">Choisir votre moyen de paiement</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
+      <div class="pay-btns">
         <a class="btn-pricing on-dark" href="https://paypal.me/clementreboutte/690EUR" target="_blank" rel="noopener" style="font-size:.78rem;padding:.7rem .5rem;text-align:center;">
           <span style="display:block;font-size:1rem;margin-bottom:.2rem;">🅿️</span>PayPal
         </a>
