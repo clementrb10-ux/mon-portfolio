@@ -1604,96 +1604,78 @@ footer a:hover { color:var(--rust); }
     <p>Clément Treboutte s'efforce de maintenir les informations de ce site à jour et exactes, mais ne saurait être tenu responsable des erreurs ou omissions éventuelles.</p>
   </div>
 </div>
+<script>
+window.addEventListener('DOMContentLoaded', function() {
 
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
-    if (!isOpen) item.classList.add('open');
-  });
-
-
-  /* ── NAV HAMBURGER ── */
+  /* ── HAMBURGER NAV ── */
   var navToggle = document.getElementById('nav-toggle');
   var navLinks  = document.getElementById('nav-links');
-  navToggle.addEventListener('click', function() {
-    navToggle.classList.toggle('open');
-    navLinks.classList.toggle('open');
-  });
-  function closeNav() {
-    navToggle.classList.remove('open');
-    navLinks.classList.remove('open');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', function() {
+      navToggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
   }
+  function closeNav() {
+    if (navToggle) navToggle.classList.remove('open');
+    if (navLinks)  navLinks.classList.remove('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(function(a) {
+    a.addEventListener('click', closeNav);
+  });
 
-  /* ── NAV ACTIVE ── */
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks  = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let cur = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) cur = s.id; });
-    navLinks.forEach(a => {
-      a.style.color = (a.getAttribute('href') === '#'+cur && !a.classList.contains('nav-cta'))
+  /* ── NAV ACTIVE ON SCROLL ── */
+  var sections = document.querySelectorAll('section[id]');
+  var links    = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', function() {
+    var cur = '';
+    sections.forEach(function(s) {
+      if (window.scrollY >= s.offsetTop - 130) cur = s.id;
+    });
+    links.forEach(function(a) {
+      a.style.color = (a.getAttribute('href') === '#' + cur && !a.classList.contains('nav-cta'))
         ? 'var(--rust)' : '';
     });
   });
 
-  /* ── SCROLL ANIMATIONS AVANCÉES ── */
-  const animTargets = [
-    { sel: '.service-card',      cls: 'from-bottom' },
-    { sel: '.pricing-card',      cls: 'from-bottom' },
-    { sel: '.testi-card',        cls: 'scale-in'    },
-    { sel: '.process-step',      cls: 'from-bottom' },
-    { sel: '.portfolio-item',    cls: 'scale-in'    },
-    { sel: '.portfolio-featured',cls: 'from-bottom' },
-    { sel: '.section-title',     cls: 'from-left'   },
-    { sel: '.about-visual',      cls: 'from-left'   },
-    { sel: '.about-text',        cls: 'from-right'  },
-    { sel: '.contact-info',      cls: 'from-left'   },
-    { sel: '.contact-form',      cls: 'from-right'  },
+  /* ── SCROLL ANIMATIONS ── */
+  var animTargets = [
+    { sel: '.service-card',       cls: 'from-bottom' },
+    { sel: '.pricing-card',       cls: 'from-bottom' },
+    { sel: '.testi-card',         cls: 'scale-in'    },
+    { sel: '.process-step',       cls: 'from-bottom' },
+    { sel: '.portfolio-item',     cls: 'scale-in'    },
+    { sel: '.portfolio-featured', cls: 'from-bottom' },
+    { sel: '.section-title',      cls: 'from-left'   },
+    { sel: '.about-visual',       cls: 'from-left'   },
+    { sel: '.about-text',         cls: 'from-right'  },
+    { sel: '.contact-info',       cls: 'from-left'   },
+    { sel: '.contact-form',       cls: 'from-right'  },
   ];
-
-  animTargets.forEach(({ sel, cls }) => {
-    document.querySelectorAll(sel).forEach((el, i) => {
+  animTargets.forEach(function(t) {
+    document.querySelectorAll(t.sel).forEach(function(el, i) {
       if (!el.classList.contains('reveal')) {
-        el.classList.add('reveal', cls);
+        el.classList.add('reveal', t.cls);
         el.style.transitionDelay = (i * 0.08) + 's';
       }
     });
   });
-
-  const revealObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
+  var revealObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
         revealObs.unobserve(e.target);
       }
     });
   }, { threshold: 0.12 });
-
-  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-  );
-    if (!isOpen) item.classList.add('open');
-  }
-
-  /* ── MENTIONS LÉGALES MODAL ── */
-  function closeMentions(e) {
-    if (e.target === document.getElementById('mentions-overlay')) {
-      document.getElementById('mentions-overlay').classList.remove('open');
-    }
-  }
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      var o = document.getElementById('mentions-overlay');
-      if (o) o.classList.remove('open');
-    }
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    revealObs.observe(el);
   });
 
-
-  
-<script>
-(function() {
-  document.querySelectorAll('.faq-btn, .faq-question').forEach(function(btn) {
+  /* ── FAQ ── */
+  document.querySelectorAll('.faq-question, .faq-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      var item = this.closest('.faq-item');
+      var item = btn.closest('.faq-item');
       var isOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item.open').forEach(function(i) {
         i.classList.remove('open');
@@ -1701,5 +1683,22 @@ footer a:hover { color:var(--rust); }
       if (!isOpen) item.classList.add('open');
     });
   });
-})();
+
+  /* ── MENTIONS LÉGALES ── */
+  function closeMentions(e) {
+    var overlay = document.getElementById('mentions-overlay');
+    if (overlay && e.target === overlay) overlay.classList.remove('open');
+  }
+  var overlay = document.getElementById('mentions-overlay');
+  if (overlay) overlay.addEventListener('click', closeMentions);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      var o = document.getElementById('mentions-overlay');
+      if (o) o.classList.remove('open');
+    }
+  });
+
+});
 </script>
+</body>
+</html>
