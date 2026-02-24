@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Noir — Coiffure &amp; Beauté Amiens</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+:root{
+  --black:#0a0a0a;
+  --charcoal:#141414;
+  --panel:#1a1a1a;
+  --border:rgba(255,255,255,.07);
+  --gold:#c9a84c;
+  --gold-dim:rgba(201,168,76,.15);
+  --white:#f5f5f0;
+  --muted:#6b6b6b;
+  --light:#c0bdb5;
+}
+body{font-family:'Raleway',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;cursor:none;}
+
+/* ── CURSEUR PERSONNALISÉ ── */
+.cursor{position:fixed;width:10px;height:10px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,opacity .2s;}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(201,168,76,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .12s ease;}
+body:hover .cursor{opacity:1;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.8rem 5%;display:flex;justify-content:space-between;align-items:center;mix-blend-mode:normal;}
+nav::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,.9),transparent);pointer-events:none;z-index:-1;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.15em;color:var(--white);text-decoration:none;}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color .25s;font-weight:500;}
+.nav-links a:hover{color:var(--white);}
+.nav-reserve{background:none;border:1px solid rgba(201,168,76,.5);color:var(--gold);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;padding:.55rem 1.3rem;cursor:none;transition:all .25s;font-family:'Raleway',sans-serif;}
+.nav-reserve:hover{background:var(--gold);color:var(--black);}
+
+/* ── HERO — SPLIT SCREEN ── */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;}
+.hero-left{background:var(--charcoal);display:flex;flex-direction:column;justify-content:flex-end;padding:8rem 5% 5rem;position:relative;overflow:hidden;}
+.hero-left-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80&auto=format&fit=crop') center/cover;opacity:.35;transition:opacity .4s;}
+.hero-left:hover .hero-left-bg{opacity:.45;}
+.hero-left-content{position:relative;z-index:2;}
+.hero-eyebrow{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:.8rem;}
+.hero-eyebrow::before{content:'';display:inline-block;width:30px;height:1px;background:var(--gold);}
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,9vw,9rem);line-height:.9;letter-spacing:.02em;color:var(--white);margin-bottom:1.5rem;}
+.hero-h1 span{color:var(--gold);display:block;}
+.hero-sub{font-size:.85rem;color:var(--light);line-height:1.9;max-width:360px;font-weight:300;}
+
+.hero-right{display:grid;grid-template-rows:1fr 1fr;}
+.hero-img-top{overflow:hidden;position:relative;}
+.hero-img-top img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;}
+.hero-img-top:hover img{transform:scale(1.04);}
+.hero-img-bottom{background:var(--gold);display:flex;flex-direction:column;justify-content:center;padding:3rem 3.5rem;}
+.hero-stat-num{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--black);line-height:1;}
+.hero-stat-label{font-size:.72rem;color:rgba(10,10,10,.6);letter-spacing:.15em;text-transform:uppercase;margin-top:.3rem;}
+.hero-cta{margin-top:2rem;display:inline-flex;align-items:center;gap:.8rem;background:var(--black);color:var(--white);padding:.9rem 1.8rem;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;transition:all .25s;width:fit-content;}
+.hero-cta:hover{background:var(--charcoal);}
+.hero-cta::after{content:'→';transition:transform .25s;}
+.hero-cta:hover::after{transform:translateX(4px);}
+
+/* ── TICKER ── */
+.ticker{background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:.7rem 0;white-space:nowrap;}
+.ticker-track{display:inline-flex;animation:tick 22s linear infinite;}
+.ticker-item{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding:0 2.5rem;}
+.ticker-dot{color:var(--gold);padding:0 .3rem;}
+@keyframes tick{to{transform:translateX(-50%);}}
+
+/* ── SERVICES ── */
+.services{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--border);}
+.service-item{padding:3.5rem 3rem;border-right:1px solid var(--border);transition:background .3s;}
+.service-item:last-child{border-right:none;}
+.service-item:hover{background:var(--panel);}
+.service-num{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--gold-dim);line-height:1;margin-bottom:1.5rem;transition:color .3s;}
+.service-item:hover .service-num{color:rgba(201,168,76,.4);}
+.service-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.05em;margin-bottom:.8rem;}
+.service-desc{font-size:.78rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem;font-weight:300;}
+.service-price{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);}
+
+/* ── GALERIE ── */
+.galerie{padding:6rem 5%;}
+.galerie-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;}
+.galerie-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,5rem);letter-spacing:.05em;line-height:1;}
+.galerie-title span{color:var(--gold);}
+.galerie-link{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s;}
+.galerie-link:hover{color:var(--white);}
+.galerie-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:300px 300px;gap:3px;}
+.galerie-img{overflow:hidden;position:relative;}
+.galerie-img img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(20%);transition:filter .4s,transform .5s;}
+.galerie-img:hover img{filter:grayscale(0%);transform:scale(1.05);}
+.galerie-img.tall{grid-row:1/3;}
+.galerie-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.6),transparent);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.2rem;}
+.galerie-img:hover .galerie-overlay{opacity:1;}
+.galerie-overlay span{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);}
+
+/* ── ÉQUIPE ── */
+.equipe{background:var(--charcoal);padding:6rem 5%;border-top:1px solid var(--border);}
+.equipe-header{margin-bottom:3.5rem;}
+.equipe-label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;display:block;}
+.equipe-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4rem);letter-spacing:.05em;}
+.equipe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.equipe-card{position:relative;overflow:hidden;}
+.equipe-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;filter:grayscale(40%);transition:filter .4s,transform .5s;}
+.equipe-card:hover .equipe-img{filter:grayscale(0%);transform:scale(1.03);}
+.equipe-info{position:absolute;bottom:0;left:0;right:0;padding:2rem 1.5rem;background:linear-gradient(transparent,rgba(10,10,10,.9));transform:translateY(10px);transition:transform .3s;}
+.equipe-card:hover .equipe-info{transform:translateY(0);}
+.equipe-name{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.08em;}
+.equipe-role{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:.2rem;}
+.equipe-exp{font-size:.72rem;color:var(--muted);margin-top:.5rem;font-weight:300;}
+
+/* ── RÉSERVATION ── */
+.reservation{display:grid;grid-template-columns:1fr 1fr;}
+.resa-left{padding:6rem 5%;background:var(--black);border-top:1px solid var(--border);}
+.resa-label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;display:block;}
+.resa-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,5vw,4.5rem);line-height:.95;letter-spacing:.03em;margin-bottom:2rem;}
+.resa-infos{display:flex;flex-direction:column;gap:1.2rem;margin-top:2.5rem;}
+.resa-info{display:flex;align-items:center;gap:1rem;font-size:.82rem;color:var(--light);font-weight:300;}
+.resa-icon{width:40px;height:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.resa-right{background:var(--panel);padding:6rem 5%;border-top:1px solid var(--border);}
+.resa-form{display:flex;flex-direction:column;gap:.8rem;}
+.resa-form input,.resa-form select,.resa-form textarea{background:var(--black);border:1px solid var(--border);color:var(--white);padding:.9rem 1.1rem;font-size:.82rem;font-family:'Raleway',sans-serif;outline:none;transition:border .2s;}
+.resa-form input::placeholder,.resa-form textarea::placeholder{color:var(--muted);}
+.resa-form input:focus,.resa-form select:focus,.resa-form textarea:focus{border-color:rgba(201,168,76,.5);}
+.resa-form select{color:var(--muted);}
+.resa-form select option{background:var(--charcoal);}
+.resa-form textarea{height:90px;resize:none;}
+.resa-btn{background:var(--gold);color:var(--black);border:none;padding:1.1rem;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;cursor:none;font-family:'Raleway',sans-serif;transition:all .25s;margin-top:.3rem;}
+.resa-btn:hover{background:var(--white);}
+
+/* ── FOOTER ── */
+footer{background:var(--charcoal);border-top:1px solid var(--border);padding:3rem 5%;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;align-items:start;}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.1em;color:var(--white);margin-bottom:.5rem;}
+.footer-logo span{color:var(--gold);}
+.footer-tagline{font-size:.75rem;color:var(--muted);line-height:1.7;font-weight:300;}
+.footer-col h4{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;}
+.footer-col a,.footer-col p{display:block;font-size:.78rem;color:var(--muted);text-decoration:none;line-height:2;transition:color .2s;font-weight:300;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{background:var(--black);border-top:1px solid var(--border);padding:.9rem 5%;display:flex;justify-content:space-between;font-size:.65rem;color:var(--muted);}
+.footer-bottom a{color:var(--gold);text-decoration:none;}
+
+/* ── HORAIRES TABLE ── */
+.h-row{display:flex;justify-content:space-between;padding:.65rem 0;border-bottom:1px solid var(--border);font-size:.8rem;}
+.h-row:last-child{border-bottom:none;}
+.h-row .day{color:var(--muted);font-weight:300;}
+.h-row .time{color:var(--white);}
+.h-row.today .day,.h-row.today .time{color:var(--gold);}
+.h-row.closed .time{color:var(--muted);}
+
+/* ── MOBILE ── */
+@media(max-width:900px){
+  body{cursor:auto;}
+  .cursor,.cursor-ring{display:none;}
+  .hero{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .hero-left{min-height:100vh;padding:7rem 5% 5rem;}
+  .services{grid-template-columns:1fr;}
+  .service-item{border-right:none;border-bottom:1px solid var(--border);}
+  .service-item:last-child{border-bottom:none;}
+  .galerie-grid{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px;}
+  .galerie-img.tall{grid-row:auto;}
+  .equipe-grid{grid-template-columns:1fr 1fr;}
+  .reservation{grid-template-columns:1fr;}
+  footer{grid-template-columns:1fr;gap:2rem;}
+  nav{padding:1.2rem 5%;}
+  .nav-links{display:none;}
+}
+@media(max-width:600px){
+  .galerie-grid{grid-template-columns:1fr;}
+  .galerie-img.tall{grid-row:auto;}
+  .equipe-grid{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;gap:.4rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSEUR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">STUDIO<span>.</span>NOIR</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#equipe">Équipe</a></li>
+  </ul>
+  <button class="nav-reserve" onclick="document.getElementById('reservation').scrollIntoView({behavior:'smooth'})">Réserver</button>
+</nav>
+
+<!-- HERO SPLIT -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-left-bg"></div>
+    <div class="hero-left-content">
+      <div class="hero-eyebrow">Salon de coiffure · Amiens</div>
+      <h1 class="hero-h1">L'ART<span>DU</span>STYLE.</h1>
+      <p class="hero-sub">Coupes, colorations, soins capillaires. Un espace où chaque détail est pensé pour sublimer votre personnalité.</p>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-top">
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80&auto=format&fit=crop" alt="Salon Studio Noir" loading="lazy">
+    </div>
+    <div class="hero-img-bottom">
+      <div class="hero-stat-num">500+</div>
+      <div class="hero-stat-label">Clients satisfaits chaque mois</div>
+      <a class="hero-cta" href="#reservation">Prendre rendez-vous</a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Coupe Femme</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Coupe Homme</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Coloration</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Balayage</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Brushing</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Soin Kératine</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Lissage</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Coupe Enfant</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Coupe Femme</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Coupe Homme</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Coloration</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Balayage</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Brushing</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Soin Kératine</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Lissage</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Coupe Enfant</span><span class="ticker-dot">✦</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="services" id="services">
+  <div class="service-item">
+    <div class="service-num">01</div>
+    <div class="service-name">Coupe & Brushing</div>
+    <div class="service-desc">Diagnostic capillaire, coupe sur-mesure adaptée à votre morphologie et votre style de vie. Brushing inclus.</div>
+    <div class="service-price">Femme à partir de 35€ · Homme 22€ · Enfant 16€</div>
+  </div>
+  <div class="service-item">
+    <div class="service-num">02</div>
+    <div class="service-name">Couleur & Balayage</div>
+    <div class="service-desc">Colorations respectueuses, mèches, balayage naturel ou californien. Produits L'Oréal Professionnel exclusivement.</div>
+    <div class="service-price">Coloration à partir de 55€ · Balayage dès 75€</div>
+  </div>
+  <div class="service-item">
+    <div class="service-num">03</div>
+    <div class="service-name">Soins & Traitements</div>
+    <div class="service-desc">Lissage brésilien, soin kératine, traitement anti-casse. Cheveux transformés, brillance et douceur garanties.</div>
+    <div class="service-price">Soin à partir de 30€ · Lissage dès 120€</div>
+  </div>
+</div>
+
+<!-- GALERIE -->
+<section class="galerie" id="galerie">
+  <div class="galerie-header">
+    <div>
+      <span style="font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.6rem;">Nos créations</span>
+      <div class="galerie-title">NOTRE<br><span>GALERIE</span></div>
+    </div>
+    <a class="galerie-link" href="#reservation">Réserver une séance →</a>
+  </div>
+  <div class="galerie-grid">
+    <div class="galerie-img tall">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80&auto=format&fit=crop" alt="Coiffure" loading="lazy">
+      <div class="galerie-overlay"><span>Coupe & Couleur</span></div>
+    </div>
+    <div class="galerie-img">
+      <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&q=80&auto=format&fit=crop" alt="Balayage" loading="lazy">
+      <div class="galerie-overlay"><span>Balayage</span></div>
+    </div>
+    <div class="galerie-img">
+      <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400&q=80&auto=format&fit=crop" alt="Brushing" loading="lazy">
+      <div class="galerie-overlay"><span>Brushing</span></div>
+    </div>
+    <div class="galerie-img">
+      <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=400&q=80&auto=format&fit=crop" alt="Coupe homme" loading="lazy">
+      <div class="galerie-overlay"><span>Coupe Homme</span></div>
+    </div>
+    <div class="galerie-img">
+      <img src="https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?w=400&q=80&auto=format&fit=crop" alt="Coloration" loading="lazy">
+      <div class="galerie-overlay"><span>Coloration</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ÉQUIPE -->
+<section class="equipe" id="equipe">
+  <div class="equipe-header">
+    <span class="equipe-label">Nos stylistes</span>
+    <h2 class="equipe-title">UNE ÉQUIPE<br>DE PASSIONNÉS</h2>
+  </div>
+  <div class="equipe-grid">
+    <div class="equipe-card">
+      <img class="equipe-img" src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=500&q=80&auto=format&fit=crop" alt="Sophie" loading="lazy">
+      <div class="equipe-info">
+        <div class="equipe-name">Sophie Leblanc</div>
+        <div class="equipe-role">Directrice artistique</div>
+        <div class="equipe-exp">15 ans d'expérience · Spécialiste couleur</div>
+      </div>
+    </div>
+    <div class="equipe-card">
+      <img class="equipe-img" src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=500&q=80&auto=format&fit=crop" alt="Marc" loading="lazy">
+      <div class="equipe-info">
+        <div class="equipe-name">Marc Fontaine</div>
+        <div class="equipe-role">Styliste senior</div>
+        <div class="equipe-exp">10 ans · Spécialiste coupe homme</div>
+      </div>
+    </div>
+    <div class="equipe-card">
+      <img class="equipe-img" src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=500&q=80&auto=format&fit=crop" alt="Clara" loading="lazy">
+      <div class="equipe-info">
+        <div class="equipe-name">Clara Morin</div>
+        <div class="equipe-role">Coloriste</div>
+        <div class="equipe-exp">7 ans · Experte balayage & mèches</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RÉSERVATION -->
+<div class="reservation" id="reservation">
+  <div class="resa-left">
+    <span class="resa-label">Prenez rendez-vous</span>
+    <h2 class="resa-title">RÉSERVEZ<br>VOTRE<br>SÉANCE.</h2>
+    <div class="resa-infos">
+      <div class="resa-info"><span class="resa-icon">📍</span>24 Rue des Trois Cailloux, Amiens</div>
+      <div class="resa-info"><span class="resa-icon">📞</span>03 22 XX XX XX</div>
+      <div class="resa-info"><span class="resa-icon">✉️</span>contact@studionoir-amiens.fr</div>
+    </div>
+    <div style="margin-top:3rem;">
+      <div style="font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Horaires</div>
+      <div id="horaires-list">
+        <div class="h-row" id="day-1"><span class="day">Lundi</span><span class="time">9h00 — 19h00</span></div>
+        <div class="h-row" id="day-2"><span class="day">Mardi</span><span class="time">9h00 — 19h00</span></div>
+        <div class="h-row" id="day-3"><span class="day">Mercredi</span><span class="time">9h00 — 19h00</span></div>
+        <div class="h-row" id="day-4"><span class="day">Jeudi</span><span class="time">9h00 — 20h00</span></div>
+        <div class="h-row" id="day-5"><span class="day">Vendredi</span><span class="time">9h00 — 20h00</span></div>
+        <div class="h-row" id="day-6"><span class="day">Samedi</span><span class="time">8h30 — 18h00</span></div>
+        <div class="h-row closed" id="day-0"><span class="day">Dimanche</span><span class="time">Fermé</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="resa-right">
+    <span class="resa-label">Formulaire de réservation</span>
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.08em;margin-bottom:2rem;">VOTRE DEMANDE</h3>
+    <form class="resa-form" onsubmit="return false;">
+      <input type="text" placeholder="Votre prénom et nom *">
+      <input type="tel" placeholder="Votre téléphone *">
+      <select>
+        <option value="" disabled selected>Type de prestation…</option>
+        <option>Coupe Femme</option>
+        <option>Coupe Homme</option>
+        <option>Coupe Enfant</option>
+        <option>Coloration complète</option>
+        <option>Balayage / Mèches</option>
+        <option>Brushing</option>
+        <option>Soin kératine</option>
+        <option>Lissage brésilien</option>
+        <option>Autre</option>
+      </select>
+      <select>
+        <option value="" disabled selected>Choisir un styliste…</option>
+        <option>Sophie Leblanc</option>
+        <option>Marc Fontaine</option>
+        <option>Clara Morin</option>
+        <option>Pas de préférence</option>
+      </select>
+      <input type="date">
+      <textarea placeholder="Informations complémentaires (longueur actuelle, couleur souhaitée, allergies…)"></textarea>
+      <button class="resa-btn" type="submit">Envoyer ma demande →</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">STUDIO<span>.</span>NOIR</div>
+    <div class="footer-tagline">Salon de coiffure & beauté à Amiens.<br>L'art du style depuis 2012.</div>
+  </div>
+  <div class="footer-col">
+    <h4>Navigation</h4>
+    <a href="#services">Nos services</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#equipe">L'équipe</a>
+    <a href="#reservation">Réserver</a>
+  </div>
+  <div class="footer-col">
+    <h4>Contact</h4>
+    <p>24 Rue des Trois Cailloux</p>
+    <p>80000 Amiens</p>
+    <a href="tel:+33322000000">03 22 XX XX XX</a>
+    <a href="mailto:contact@studionoir-amiens.fr">contact@studionoir-amiens.fr</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2025 Studio Noir — Tous droits réservés</span>
+  <span>Site créé par <a href="#">SiteWeb-Artisan.fr</a></span>
+</div>
+
+<script>
+// Curseur custom
+var cur = document.getElementById('cursor');
+var ring = document.getElementById('cursor-ring');
+document.addEventListener('mousemove', function(e) {
+  cur.style.left = e.clientX + 'px';
+  cur.style.top = e.clientY + 'px';
+  setTimeout(function() {
+    ring.style.left = e.clientX + 'px';
+    ring.style.top = e.clientY + 'px';
+  }, 80);
+});
+document.querySelectorAll('button,a').forEach(function(el) {
+  el.addEventListener('mouseenter', function() {
+    cur.style.width = '20px'; cur.style.height = '20px';
+    ring.style.width = '50px'; ring.style.height = '50px';
+  });
+  el.addEventListener('mouseleave', function() {
+    cur.style.width = '10px'; cur.style.height = '10px';
+    ring.style.width = '36px'; ring.style.height = '36px';
+  });
+});
+
+// Jour actuel
+var today = new Date().getDay();
+var row = document.getElementById('day-' + today);
+if (row) row.classList.add('today');
+
+// Scroll fade in
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.service-item,.equipe-card,.galerie-img').forEach(function(el, i) {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(25px)';
+  el.style.transition = 'opacity .6s ease ' + (i * 0.1) + 's, transform .6s ease ' + (i * 0.1) + 's';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
