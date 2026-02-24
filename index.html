@@ -869,17 +869,32 @@ footer a:hover { color:var(--rust); }
 
 @media (max-width:700px) {
   /* Nav */
+  nav { padding:1rem 5%; position:relative; }
   .nav-toggle { display:flex; }
   .nav-links {
-    display:none; position:fixed; top:0; left:0; right:0; bottom:0;
-    background:rgba(240,247,255,.98);
-    flex-direction:column; align-items:center; justify-content:center;
-    gap:2rem; z-index:250; list-style:none;
+    display:none;
+    position:absolute; top:calc(100% + 4px); right:5%;
+    background:#fff;
+    flex-direction:column; align-items:stretch;
+    gap:0; z-index:250; list-style:none;
+    min-width:200px;
+    box-shadow:0 8px 32px rgba(13,27,42,.15);
+    border:1px solid rgba(14,165,233,.15);
+    border-radius:4px;
+    overflow:hidden;
   }
   .nav-links.open { display:flex; }
-  .nav-links a { font-size:1.1rem; }
-  .nav-links .nav-cta { padding:.8rem 2rem; }
-  nav { padding:1rem 5%; }
+  .nav-links li { border-bottom:1px solid rgba(14,165,233,.08); }
+  .nav-links li:last-child { border-bottom:none; }
+  .nav-links a {
+    display:block; padding:.9rem 1.2rem;
+    font-size:.85rem; letter-spacing:.06em;
+  }
+  .nav-links a:hover { background:rgba(14,165,233,.06); }
+  .nav-links .nav-cta {
+    margin:.6rem; padding:.7rem 1rem !important;
+    border-radius:2px; text-align:center;
+  }
 
   /* Hero */
   .hero { padding:6rem 5% 3rem; text-align:center; }
@@ -991,12 +1006,12 @@ footer a:hover { color:var(--rust); }
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="nav-links">
-    <li><a href="#services" onclick="closeNav()">Services</a></li>
-    <li><a href="#portfolio" onclick="closeNav()">Réalisations</a></li>
-    <li><a href="#tarifs" onclick="closeNav()">Tarifs</a></li>
-    <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
-    <li><a href="#a-propos" onclick="closeNav()">À propos</a></li>
-    <li><a href="#contact" class="nav-cta" onclick="closeNav()">Me contacter</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Réalisations</a></li>
+    <li><a href="#tarifs">Tarifs</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#a-propos">À propos</a></li>
+    <li><a href="#contact" class="nav-cta">Me contacter</a></li>
   </ul>
 </nav>
 
@@ -1610,18 +1625,32 @@ window.addEventListener('DOMContentLoaded', function() {
   /* ── HAMBURGER NAV ── */
   var navToggle = document.getElementById('nav-toggle');
   var navLinks  = document.getElementById('nav-links');
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', function() {
-      navToggle.classList.toggle('open');
-      navLinks.classList.toggle('open');
-    });
-  }
+
   function closeNav() {
     if (navToggle) navToggle.classList.remove('open');
     if (navLinks)  navLinks.classList.remove('open');
   }
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navToggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+  }
+
+  // Close when clicking a link
   document.querySelectorAll('.nav-links a').forEach(function(a) {
     a.addEventListener('click', closeNav);
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function(e) {
+    if (navLinks && navLinks.classList.contains('open')) {
+      if (!navLinks.contains(e.target) && e.target !== navToggle) {
+        closeNav();
+      }
+    }
   });
 
   /* ── NAV ACTIVE ON SCROLL ── */
@@ -1702,3 +1731,4 @@ window.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
