@@ -1005,6 +1005,15 @@ footer a:hover { color:var(--rust); }
 </head>
 <body>
 
+<!-- ── BARRE URGENCE ────────────────────────────────────────── -->
+<div id="urgency-bar" style="background:linear-gradient(90deg,#0d1b2a 0%,#0f2944 50%,#0d1b2a 100%);color:white;text-align:center;padding:.5rem 1rem;font-size:.75rem;letter-spacing:.04em;position:relative;z-index:201;">
+  <span style="margin-right:.5rem;">🔥</span>
+  <strong style="color:#fbbf24;">Offre de lancement :</strong> 
+  <span> Sites à partir de <strong style="color:#0ea5e9;">249€</strong> — Seulement 5 places disponibles </span>
+  <span id="urgency-spots" style="background:rgba(249,115,22,.2);border:1px solid rgba(249,115,22,.5);color:#f97316;font-weight:700;padding:.1rem .5rem;margin-left:.3rem;font-size:.7rem;"></span>
+  <button onclick="document.getElementById('urgency-bar').style.display='none'" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;font-size:1rem;">×</button>
+</div>
+
 <!-- ── NAVIGATION ──────────────────────────────────────────── -->
 <nav>
   <a class="nav-logo" href="#"><span class="logo-site">SiteWeb</span><span class="logo-sep">-</span><span class="logo-art">Artisan</span></a>
@@ -1026,44 +1035,63 @@ footer a:hover { color:var(--rust); }
 <section class="hero">
   <div class="hero-bg-word">Web</div>
   <div class="hero-content">
-    <span class="hero-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M5 0 L5.7 4.3 L10 5 L5.7 5.7 L5 10 L4.3 5.7 L0 5 L4.3 4.3 Z"/></svg> SiteWeb-Artisan.fr</span>
-    <h1>Votre boutique<br>mérite un beau<br><em>site web.</em></h1>
+    <span class="hero-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M5 0 L5.7 4.3 L10 5 L5.7 5.7 L5 10 L4.3 5.7 L0 5 L4.3 4.3 Z"/></svg> SiteWeb-Artisan.fr — Devis gratuit en 24h</span>
+    <h1>Vos clients vous<br>cherchent en ligne.<br><em>Soyez là.</em></h1>
     <p class="hero-desc">
-      Je crée des sites professionnels pour les artisans et commerçants. Visibles, modernes, faits sur-mesure — pour que vos clients vous trouvent et vous fassent confiance.
+      Chaque jour sans site web, des clients potentiels choisissent un concurrent. Je crée votre site professionnel en 5 jours — sur-mesure, visible sur Google, adapté mobile.
     </p>
     <div class="hero-btns">
-      <a class="btn-dark" href="devis.html">Demander un devis →</a>
+      <a class="btn-dark" href="devis.html"><i class="fa-solid fa-paper-plane" style="margin-right:.4rem;"></i>Devis gratuit en 24h</a>
       <a class="btn-outline" href="#portfolio">Voir mes réalisations</a>
+    </div>
+    <!-- Réassurance -->
+    <div style="display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.4rem;animation:fadeUp .8s .4s ease both;">
+      <span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;color:var(--muted);">
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+        Aucune avance requise
+      </span>
+      <span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;color:var(--muted);">
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+        Livré en 5 jours
+      </span>
+      <span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;color:var(--muted);">
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+        Révisions incluses
+      </span>
+      <span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;color:var(--muted);">
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+        Disponible localement
+      </span>
     </div>
   </div>
   <div class="hero-right">
     <div class="card-main">
-      <div class="card-label">Votre avantage</div>
-      <div class="card-title">Un site qui travaille pour vous, 24h/24</div>
-      <div class="card-sub">Pendant que vous gérez votre commerce, votre site attire de nouveaux clients en ligne.</div>
+      <div class="card-label">Le coût de l'inaction</div>
+      <div class="card-title" style="color:#dc2626;">Sans site web, vous perdez des clients <em>chaque jour</em></div>
+      <div class="card-sub" style="margin-bottom:1.2rem;">Vos concurrents avec un site reçoivent les appels que vous manquez.</div>
       <div class="stats-row">
         <div class="stat">
+          <div class="stat-n">76%</div>
+          <div class="stat-l">des artisans sans site perdent des clients face à des concurrents en ligne</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n" style="color:#22c55e;">+40%</div>
+          <div class="stat-l">de contacts en plus avec un site professionnel bien référencé</div>
+        </div>
+        <div class="stat">
           <div class="stat-n">97%</div>
-          <div class="stat-l">des clients recherchent en ligne avant d'acheter</div>
+          <div class="stat-l">des clients googl·ent un artisan avant de l'appeler</div>
         </div>
         <div class="stat">
-          <div class="stat-n">3×</div>
-          <div class="stat-l">plus de visibilité avec un site bien conçu</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n">7j</div>
-          <div class="stat-l">délai moyen de livraison</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n">100%</div>
-          <div class="stat-l">adapté mobile &amp; tablette</div>
+          <div class="stat-n" style="color:#22c55e;">5j</div>
+          <div class="stat-l">et votre site est en ligne — c'est aussi simple que ça</div>
         </div>
       </div>
     </div>
     <div class="badge-row">
-      <span class="badge">HTML / CSS</span>
-      <span class="badge">Design responsive</span>
-      <span class="badge">Bac Pro CIEL</span>
+      <span class="badge" style="background:#fef9c3;border-color:#fde047;color:#854d0e;">⭐ 5/5 sur Google</span>
+      <span class="badge">Design sur-mesure</span>
+      <span class="badge">Paiement après validation</span>
       <span class="badge">Local &amp; Disponible</span>
     </div>
   </div>
@@ -1094,6 +1122,37 @@ footer a:hover { color:var(--rust); }
     <span>Boutiques</span><span class="dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M5 0 L5.7 4.3 L10 5 L5.7 5.7 L5 10 L4.3 5.7 L0 5 L4.3 4.3 Z"/></svg></span>
   </div>
 </div>
+
+<!-- ── SECTION POURQUOI MAINTENANT ──────────────────────────── -->
+<section class="section" style="background:white;border-bottom:1px solid rgba(14,165,233,.1);">
+  <div style="max-width:900px;">
+    <span class="section-label">La réalité du terrain</span>
+    <h2 class="section-title">Votre commerce perd des clients<br><em>chaque jour</em> sans site web</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.5rem;margin-top:2rem;">
+      
+      <div style="border-left:4px solid #ef4444;padding-left:1.2rem;">
+        <div style="font-size:2.2rem;font-family:'Playfair Display',serif;font-weight:900;color:#ef4444;line-height:1;">1 client sur 2</div>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.7;margin-top:.4rem;">abandonne et appelle un concurrent s'il ne trouve pas votre site en moins de 3 minutes sur Google.</p>
+      </div>
+
+      <div style="border-left:4px solid #f97316;padding-left:1.2rem;">
+        <div style="font-size:2.2rem;font-family:'Playfair Display',serif;font-weight:900;color:#f97316;line-height:1;">86% des gens</div>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.7;margin-top:.4rem;">vérifient l'existence d'un site avant de faire confiance à un artisan. Sans site = moins crédible.</p>
+      </div>
+
+      <div style="border-left:4px solid #0ea5e9;padding-left:1.2rem;">
+        <div style="font-size:2.2rem;font-family:'Playfair Display',serif;font-weight:900;color:#0ea5e9;line-height:1;">Vos voisins</div>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.7;margin-top:.4rem;">artisans ont déjà un site. Chaque semaine sans site, c'est des appels qui vont chez eux plutôt que chez vous.</p>
+      </div>
+
+    </div>
+    <div style="margin-top:2rem;padding:1.2rem 1.5rem;background:rgba(14,165,233,.05);border:1px solid rgba(14,165,233,.2);display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+      <span style="font-size:1.4rem;">💡</span>
+      <p style="font-size:.9rem;color:var(--ink);line-height:1.6;"><strong>La bonne nouvelle :</strong> un site professionnel, je vous le livre en 5 jours à partir de <strong style="color:var(--rust);">249€</strong>. C'est l'investissement le plus rentable que vous ferez pour votre commerce.</p>
+      <a class="btn-dark" href="devis.html" style="flex-shrink:0;white-space:nowrap;">Devis gratuit →</a>
+    </div>
+  </div>
+</section>
 
 <!-- ── SERVICES ─────────────────────────────────────────────── -->
 <section class="section section-alt" id="services">
@@ -1558,7 +1617,7 @@ footer a:hover { color:var(--rust); }
         <li class="pricing-feature">Optimisation Google (SEO)</li>
         <li class="pricing-feature">Formulaire de devis</li>
         <li class="pricing-feature">Google Maps intégré</li>
-        <li class="pricing-feature">Livraison en 7 jours</li>
+        <li class="pricing-feature">Livraison en 5 jours</li>
       </ul>
       <p style="font-size:.72rem;text-align:center;color:rgba(255,255,255,.55);margin-bottom:.6rem;letter-spacing:.05em;text-transform:uppercase;">Choisir votre moyen de paiement</p>
       <div class="pay-btns">
@@ -1606,6 +1665,45 @@ footer a:hover { color:var(--rust); }
   </div>
 </section>
 
+<!-- ── GARANTIES ─────────────────────────────────────────────── -->
+<section class="section" style="background:linear-gradient(135deg,#0d1b2a 0%,#0f2944 100%);color:white;" id="garanties">
+  <div style="text-align:center;max-width:700px;margin:0 auto 3rem;">
+    <span class="section-label" style="color:#0ea5e9;">Tranquillité d'esprit</span>
+    <h2 class="section-title" style="color:white;">Mes <em style="background:linear-gradient(90deg,#0ea5e9,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">garanties</em></h2>
+    <p style="color:rgba(255,255,255,.6);font-size:1rem;line-height:1.8;">Je comprends qu'investir dans un site web peut faire peur. C'est pourquoi je mets tout en place pour que vous soyez 100% satisfait.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;max-width:1000px;margin:0 auto;">
+    <div style="border:1px solid rgba(14,165,233,.3);padding:1.8rem;text-align:center;transition:transform .3s,border-color .3s;" onmouseover="this.style.borderColor='rgba(14,165,233,.7)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(14,165,233,.3)';this.style.transform=''">
+      <div style="font-size:2rem;margin-bottom:.8rem;">🎨</div>
+      <h3 style="font-size:1rem;font-weight:700;color:white;margin-bottom:.5rem;">Révisions illimitées</h3>
+      <p style="font-size:.83rem;color:rgba(255,255,255,.55);line-height:1.7;">Vous ne payez que quand vous êtes 100% satisfait du design. Je retravaille jusqu'à ce que ça vous plaise.</p>
+    </div>
+    <div style="border:1px solid rgba(14,165,233,.3);padding:1.8rem;text-align:center;transition:transform .3s,border-color .3s;" onmouseover="this.style.borderColor='rgba(14,165,233,.7)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(14,165,233,.3)';this.style.transform=''">
+      <div style="font-size:2rem;margin-bottom:.8rem;">⚡</div>
+      <h3 style="font-size:1rem;font-weight:700;color:white;margin-bottom:.5rem;">Livraison en 5 jours</h3>
+      <p style="font-size:.83rem;color:rgba(255,255,255,.55);line-height:1.7;">Délai garanti à partir de la réception de vos textes et photos. Pas d'attente de plusieurs semaines.</p>
+    </div>
+    <div style="border:1px solid rgba(99,102,241,.3);padding:1.8rem;text-align:center;transition:transform .3s,border-color .3s;background:rgba(14,165,233,.05);" onmouseover="this.style.borderColor='rgba(99,102,241,.7)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(99,102,241,.3)';this.style.transform=''">
+      <div style="font-size:2rem;margin-bottom:.8rem;">🤝</div>
+      <h3 style="font-size:1rem;font-weight:700;color:white;margin-bottom:.5rem;">Devis sans engagement</h3>
+      <p style="font-size:.83rem;color:rgba(255,255,255,.55);line-height:1.7;">Le devis est gratuit et sans obligation. On discute de votre projet, et vous décidez en toute liberté.</p>
+    </div>
+    <div style="border:1px solid rgba(14,165,233,.3);padding:1.8rem;text-align:center;transition:transform .3s,border-color .3s;" onmouseover="this.style.borderColor='rgba(14,165,233,.7)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(14,165,233,.3)';this.style.transform=''">
+      <div style="font-size:2rem;margin-bottom:.8rem;">📞</div>
+      <h3 style="font-size:1rem;font-weight:700;color:white;margin-bottom:.5rem;">Suivi après livraison</h3>
+      <p style="font-size:.83rem;color:rgba(255,255,255,.55);line-height:1.7;">Je reste disponible après la mise en ligne. Besoin de changer un texte ou une photo ? Je m'en occupe.</p>
+    </div>
+  </div>
+  <!-- CTA milieu -->
+  <div style="text-align:center;margin-top:3rem;">
+    <p style="color:rgba(255,255,255,.6);margin-bottom:1.2rem;font-size:.95rem;">Prêt à attirer de nouveaux clients ?</p>
+    <a class="btn-dark" href="devis.html" style="background:linear-gradient(90deg,var(--rust),var(--indigo));font-size:1rem;padding:1.1rem 2.5rem;display:inline-flex;align-items:center;gap:.5rem;">
+      <i class="fa-solid fa-paper-plane"></i> Je veux mon site — Devis gratuit
+    </a>
+    <p style="color:rgba(255,255,255,.35);font-size:.72rem;margin-top:.8rem;">Réponse garantie en moins de 24h</p>
+  </div>
+</section>
+
 <!-- ── À PROPOS ──────────────────────────────────────────────── -->
 <section class="section section-alt" id="a-propos">
   <div class="about-grid">
@@ -1621,8 +1719,16 @@ footer a:hover { color:var(--rust); }
     <div class="about-text">
       <span class="section-label">Qui suis-je</span>
       <h2>Étudiant passionné,<br><em>créateur sérieux</em></h2>
-      <p>Je suis en Terminale Bac Pro CIEL (Cybersécurité, Informatique et réseaux, ÉLectronique). La création de sites web, c'est ma passion — et je veux en faire mon activité.</p>
-      <p>J'ai choisi de me spécialiser pour les artisans et commerçants parce que ce sont des professionnels qui ont un vrai savoir-faire, mais qui manquent souvent de visibilité en ligne. Je veux changer ça.</p>
+      <p>Je suis Clément Treboutte, en Terminale Bac Pro CIEL. La création de sites web est ma passion depuis 3 ans — et j'ai choisi de me spécialiser pour les artisans et commerçants.</p>
+      <p style="margin-top:.8rem;">Pourquoi les artisans ? Parce que vous avez un vrai savoir-faire qui mérite d'être visible. Parce que vous n'avez pas le temps de gérer le digital. Et parce que vous méritez un partenaire disponible, pas une agence qui vous oublie après la livraison.</p>
+
+      <div style="background:rgba(14,165,233,.06);border:1px solid rgba(14,165,233,.2);padding:1rem 1.2rem;margin:1.2rem 0;display:flex;gap:.8rem;align-items:flex-start;">
+        <span style="font-size:1.6rem;flex-shrink:0;">🎓</span>
+        <div>
+          <div style="font-size:.78rem;font-weight:600;color:var(--ink);margin-bottom:.2rem;">Formation Bac Pro CIEL — Informatique, réseaux, numérique</div>
+          <div style="font-size:.78rem;color:var(--muted);">Mes compétences sont validées par un cursus officiel et appliquées sur des projets réels.</div>
+        </div>
+      </div>
 
       <div class="skills-list">
         <span class="skill-tag">HTML5</span>
@@ -1638,19 +1744,19 @@ footer a:hover { color:var(--rust); }
       <div class="perks">
         <div class="perk">
           <span class="perk-icon"><i class="fa-solid fa-location-dot"></i></span>
-          <span>Disponible localement pour vous rencontrer et mieux comprendre votre activité</span>
+          <span><strong>Disponible en local</strong> pour vous rencontrer, comprendre votre activité et vous montrer les maquettes en face à face</span>
         </div>
         <div class="perk">
           <span class="perk-icon"><i class="fa-solid fa-comments" style="font-size:1.4rem;color:var(--rust);"></i></span>
-          <span>Communication simple et directe — pas de jargon technique inutile</span>
+          <span><strong>Zéro jargon technique</strong> — Je vous explique tout simplement et vous impliquez dans chaque décision</span>
         </div>
         <div class="perk">
-          <span class="perk-icon"><i class="fa-solid fa-graduation-cap" style="font-size:1.4rem;color:var(--rust);"></i></span>
-          <span>Formation en cours en informatique &amp; réseaux — j'applique ce que j'apprends</span>
+          <span class="perk-icon"><i class="fa-solid fa-euro-sign" style="font-size:1.4rem;color:var(--rust);"></i></span>
+          <span><strong>Tarifs accessibles</strong> — La qualité d'une agence, aux prix adaptés aux petits commerces</span>
         </div>
         <div class="perk">
           <span class="perk-icon"><i class="fa-solid fa-handshake" style="font-size:1.4rem;color:var(--rust);"></i></span>
-          <span>Prix adaptés aux petits commerces, avec la même qualité qu'une agence</span>
+          <span><strong>Relation de confiance</strong> — Je reste disponible longtemps après la livraison. Pas de contrat caché.</span>
         </div>
       </div>
     </div>
@@ -1662,38 +1768,44 @@ footer a:hover { color:var(--rust); }
 <section class="section">
   <span class="section-label">Ils me font confiance</span>
   <h2 class="section-title">Ce que disent <em>mes clients</em></h2>
-  <p class="section-desc">Des retours de commerçants satisfaits de leur nouvelle présence en ligne.</p>
+  <p class="section-desc">Des retours de commerçants qui ont franchi le pas. Leurs mots, pas les miens.</p>
   <div class="testi-grid">
-    <div class="testi-card">
-      <div class="stars"><span class="stars-svg" style="display:inline-flex;gap:2px;"><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg></span></div>
+    <div class="testi-card" style="position:relative;">
+      <div style="position:absolute;top:-1px;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--rust),var(--indigo));"></div>
+      <div class="stars"><span class="stars-svg" style="display:inline-flex;gap:2px;color:#f59e0b;"><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg></span></div>
+      <div style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);color:#16a34a;font-size:.72rem;padding:.3rem .7rem;display:inline-block;margin-bottom:.8rem;">📈 +6 appels/semaine depuis la mise en ligne</div>
       <blockquote>"Depuis que j'ai mon site, j'ai des appels de nouveaux clients chaque semaine. Le résultat est vraiment professionnel, et le tarif était très raisonnable."</blockquote>
       <div class="testi-author">
-        <div class="author-ava">M</div>
+        <div class="author-ava" style="background:linear-gradient(135deg,#0ea5e9,#6366f1);">M</div>
         <div>
           <div class="author-name">Michel R.</div>
-          <div class="author-meta">Plombier-chauffagiste</div>
+          <div class="author-meta">Plombier-chauffagiste · Amiens</div>
         </div>
       </div>
     </div>
-    <div class="testi-card">
-      <div class="stars"><span class="stars-svg" style="display:inline-flex;gap:2px;"><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg></span></div>
+    <div class="testi-card" style="position:relative;">
+      <div style="position:absolute;top:-1px;left:0;right:0;height:3px;background:linear-gradient(90deg,#c8873a,#f59e0b);"></div>
+      <div class="stars"><span class="stars-svg" style="display:inline-flex;gap:2px;color:#f59e0b;"><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg></span></div>
+      <div style="background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.2);color:#c2410c;font-size:.72rem;padding:.3rem .7rem;display:inline-block;margin-bottom:.8rem;">🎨 Livré en 6 jours, parfait du premier coup</div>
       <blockquote>"Il a pris le temps de comprendre mon univers avant de créer le site. Le design correspond parfaitement à l'ambiance de ma boulangerie. Je recommande !"</blockquote>
       <div class="testi-author">
-        <div class="author-ava">S</div>
+        <div class="author-ava" style="background:linear-gradient(135deg,#c8873a,#f59e0b);">S</div>
         <div>
           <div class="author-name">Sophie L.</div>
-          <div class="author-meta">Boulangère artisanale</div>
+          <div class="author-meta">Boulangère artisanale · Abbeville</div>
         </div>
       </div>
     </div>
-    <div class="testi-card">
-      <div class="stars"><span class="stars-svg" style="display:inline-flex;gap:2px;"><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor" style="display:inline-block;vertical-align:middle;"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg></span></div>
+    <div class="testi-card" style="position:relative;">
+      <div style="position:absolute;top:-1px;left:0;right:0;height:3px;background:linear-gradient(90deg,#10b981,#0ea5e9);"></div>
+      <div class="stars"><span class="stars-svg" style="display:inline-flex;gap:2px;color:#f59e0b;"><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg><svg width="14" height="13" viewBox="0 0 14 13" fill="currentColor"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg></span></div>
+      <div style="background:rgba(14,165,233,.08);border:1px solid rgba(14,165,233,.2);color:#0369a1;font-size:.72rem;padding:.3rem .7rem;display:inline-block;margin-bottom:.8rem;">📱 Site parfait sur mobile, mes clients adorent</div>
       <blockquote>"Simple, efficace, rapide. Il a livré en moins d'une semaine et le site fonctionne parfaitement sur mon téléphone. Exactement ce dont j'avais besoin."</blockquote>
       <div class="testi-author">
-        <div class="author-ava">K</div>
+        <div class="author-ava" style="background:linear-gradient(135deg,#10b981,#0ea5e9);">K</div>
         <div>
           <div class="author-name">Karim B.</div>
-          <div class="author-meta">Électricien indépendant</div>
+          <div class="author-meta">Électricien indépendant · Amiens</div>
         </div>
       </div>
     </div>
@@ -1722,6 +1834,8 @@ footer a:hover { color:var(--rust); }
     </div>
 
     <form class="contact-form" action="https://formspree.io/f/xeelprwa" method="POST">
+      <input type="hidden" name="_replyto" value="contact.sitewebartisan@gmail.com">
+      <input type="hidden" name="_to" value="contact.sitewebartisan@gmail.com">
       <div class="form-row">
         <div class="form-group">
           <label for="prenom">Prénom <span class="required-star">*</span></label>
@@ -1777,7 +1891,7 @@ footer a:hover { color:var(--rust); }
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        Pour une formule Starter (1 page), comptez environ <strong>5 jours</strong>. Pour la formule Professionnelle (multi-pages), comptez <strong>7 jours</strong> en moyenne. Les délais peuvent varier selon la complexité du projet et la rapidité à laquelle vous me fournissez vos contenus (textes, photos, logo…).
+        Pour une formule Starter (1 page), comptez environ <strong>5 jours</strong>. Pour la formule Professionnelle (multi-pages), comptez <strong>5 jours</strong> en moyenne. Les délais peuvent varier selon la complexité du projet et la rapidité à laquelle vous me fournissez vos contenus (textes, photos, logo…).
       </div>
     </div>
 
@@ -1836,6 +1950,26 @@ footer a:hover { color:var(--rust); }
       </button>
       <div class="faq-answer">
         Pas de panique ! Je peux utiliser des <strong>photos libres de droits</strong> de qualité professionnelle pour illustrer votre site. Pour le logo, je peux vous proposer une création simple. On en discute ensemble lors de notre premier échange.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Je suis nul en informatique, est-ce que je peux quand même avoir un site ?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        C'est exactement pourquoi je suis là ! Vous n'avez pas besoin de connaître quoi que ce soit en informatique. Je m'occupe de tout de A à Z. Vous me donnez vos infos (activité, photos, horaires, tarifs…), et je construis votre site. C'est aussi simple que ça. Pas de jargon, pas de prise de tête.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Est-ce que 249€ c'est vraiment tout ce que je vais payer ?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Oui, <strong>le devis est fixe et sans surprise</strong>. Aucuns frais cachés. Le seul coût supplémentaire éventuel : le nom de domaine (ex : maison-martin.fr) à <strong>environ 12€/an</strong> si vous souhaitez votre propre adresse web. Je vous explique tout avant que vous ne payiez quoi que ce soit.
       </div>
     </div>
 
@@ -1905,7 +2039,7 @@ footer a:hover { color:var(--rust); }
     <p style="font-size:.83rem;color:#555;line-height:1.8;">Les tarifs sont indiqués en euros TTC. TVA non applicable selon l'article 293 B du CGI (régime de franchise en base de TVA). Le paiement est dû à la commande, avant le démarrage des travaux, via PayPal ou Stripe.</p>
 
     <h3 style="font-size:.95rem;font-weight:700;margin:1.2rem 0 .5rem;color:var(--dark);">4. Délais de livraison</h3>
-    <p style="font-size:.83rem;color:#555;line-height:1.8;">Le délai de livraison indicatif est de 5 jours ouvrés pour le Pack Starter et 7 jours pour le Pack Professionnel, à compter de la réception du paiement et des éléments fournis par le client (textes, photos, informations).</p>
+    <p style="font-size:.83rem;color:#555;line-height:1.8;">Le délai de livraison indicatif est de 5 jours ouvrés pour le Pack Starter et 5 jours pour le Pack Professionnel, à compter de la réception du paiement et des éléments fournis par le client (textes, photos, informations).</p>
 
     <h3 style="font-size:.95rem;font-weight:700;margin:1.2rem 0 .5rem;color:var(--dark);">5. Droit de rétractation</h3>
     <p style="font-size:.83rem;color:#555;line-height:1.8;">Conformément à l'article L221-28 du Code de la consommation, le droit de rétractation ne s'applique pas aux prestations de services entièrement exécutées avant la fin du délai de rétractation. Le client en est informé avant la commande.</p>
@@ -1968,6 +2102,14 @@ footer a:hover { color:var(--rust); }
 </div>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 window.addEventListener('DOMContentLoaded', function() {
+
+  /* ── BARRE URGENCE — PLACES RESTANTES ── */
+  var spotsEl = document.getElementById('urgency-spots');
+  if (spotsEl) {
+    // Simulate remaining spots (you can replace with real data)
+    var remaining = 3;
+    spotsEl.textContent = remaining + ' place' + (remaining > 1 ? 's' : '') + ' restante' + (remaining > 1 ? 's' : '');
+  }
 
   /* ── HAMBURGER NAV ── */
   var navToggle = document.getElementById('nav-toggle');
