@@ -1027,7 +1027,12 @@ footer a:hover { color:var(--rust); }
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#a-propos">À propos</a></li>
     <li><a href="#blog">Blog</a></li>
-    <li><a href="#contact" class="nav-cta">Me contacter</a></li>
+    <li>
+      <a href="tel:+33641099850" class="nav-phone" style="display:inline-flex;align-items:center;gap:.4rem;color:var(--rust) !important;font-weight:600;border:1.5px solid rgba(14,165,233,.3);padding:.45rem 1rem;transition:all .2s;" onmouseover="this.style.background='rgba(14,165,233,.08)'" onmouseout="this.style.background=''">
+        <i class="fa-solid fa-phone" style="font-size:.75rem;"></i>06 41 09 98 50
+      </a>
+    </li>
+    <li><a href="#contact" class="nav-cta">Devis gratuit</a></li>
   </ul>
 </nav>
 
@@ -1065,29 +1070,91 @@ footer a:hover { color:var(--rust); }
     </div>
   </div>
   <div class="hero-right">
-    <div class="card-main">
-      <div class="card-label">Le coût de l'inaction</div>
-      <div class="card-title" style="color:#dc2626;">Sans site web, vous perdez des clients <em>chaque jour</em></div>
-      <div class="card-sub" style="margin-bottom:1.2rem;">Vos concurrents avec un site reçoivent les appels que vous manquez.</div>
-      <div class="stats-row">
-        <div class="stat">
-          <div class="stat-n">76%</div>
-          <div class="stat-l">des artisans sans site perdent des clients face à des concurrents en ligne</div>
+    <div class="card-main" style="padding:0;overflow:hidden;">
+      <!-- Onglets -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--warm);">
+        <button id="tab-form" onclick="switchTab('form')" style="padding:.9rem;font-family:inherit;font-size:.78rem;font-weight:600;border:none;background:var(--rust);color:white;cursor:pointer;letter-spacing:.04em;transition:all .2s;">
+          ✉️ Devis rapide
+        </button>
+        <button id="tab-stats" onclick="switchTab('stats')" style="padding:.9rem;font-family:inherit;font-size:.78rem;font-weight:600;border:none;background:var(--white);color:var(--muted);cursor:pointer;letter-spacing:.04em;transition:all .2s;">
+          📊 Pourquoi agir
+        </button>
+      </div>
+
+      <!-- Panneau formulaire -->
+      <div id="panel-form" style="padding:1.8rem;">
+        <div class="card-label" style="margin-bottom:.8rem;">Réponse garantie en 24h — gratuit &amp; sans engagement</div>
+        <form id="hero-form" action="https://formspree.io/f/mbdablgr" method="POST" style="display:flex;flex-direction:column;gap:.8rem;">
+          <input type="hidden" name="_subject" value="Nouveau devis rapide depuis le site">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.7rem;">
+            <div>
+              <label style="font-size:.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:.3rem;">Prénom *</label>
+              <input type="text" name="prenom" placeholder="Jean" required style="width:100%;border:1.5px solid var(--warm);padding:.6rem .8rem;font-family:inherit;font-size:.85rem;outline:none;transition:border-color .2s;background:var(--cream);" onfocus="this.style.borderColor='var(--rust)'" onblur="this.style.borderColor='var(--warm)'">
+            </div>
+            <div>
+              <label style="font-size:.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:.3rem;">Téléphone *</label>
+              <input type="tel" name="telephone" placeholder="06 00 00 00 00" required style="width:100%;border:1.5px solid var(--warm);padding:.6rem .8rem;font-family:inherit;font-size:.85rem;outline:none;transition:border-color .2s;background:var(--cream);" onfocus="this.style.borderColor='var(--rust)'" onblur="this.style.borderColor='var(--warm)'">
+            </div>
+          </div>
+          <div>
+            <label style="font-size:.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:.3rem;">Votre activité *</label>
+            <select name="activite" required style="width:100%;border:1.5px solid var(--warm);padding:.6rem .8rem;font-family:inherit;font-size:.85rem;outline:none;background:var(--cream);color:var(--ink);cursor:pointer;" onfocus="this.style.borderColor='var(--rust)'" onblur="this.style.borderColor='var(--warm)'">
+              <option value="">Choisissez votre secteur…</option>
+              <option>Boulangerie / Pâtisserie</option>
+              <option>Plomberie / Chauffage</option>
+              <option>Électricité</option>
+              <option>Coiffure / Beauté</option>
+              <option>Restaurant / Café</option>
+              <option>Fleuriste</option>
+              <option>Maçonnerie / BTP</option>
+              <option>Épicerie / Commerce</option>
+              <option>Menuiserie</option>
+              <option>Peinture / Décoration</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:.3rem;">Votre message *</label>
+            <textarea name="message" placeholder="Dites-moi en 2 mots ce que vous souhaitez…" required rows="2" style="width:100%;border:1.5px solid var(--warm);padding:.6rem .8rem;font-family:inherit;font-size:.85rem;outline:none;resize:vertical;transition:border-color .2s;background:var(--cream);" onfocus="this.style.borderColor='var(--rust)'" onblur="this.style.borderColor='var(--warm)'"></textarea>
+          </div>
+          <button type="submit" id="hero-submit" style="background:linear-gradient(90deg,var(--rust),var(--indigo));color:white;border:none;padding:.85rem;font-family:inherit;font-size:.9rem;font-weight:600;cursor:pointer;letter-spacing:.03em;transition:opacity .2s;display:flex;align-items:center;justify-content:center;gap:.5rem;">
+            <i class="fa-solid fa-paper-plane"></i> Envoyer ma demande
+          </button>
+          <div id="hero-success" style="display:none;background:#f0fdf4;border:1px solid #86efac;color:#16a34a;padding:.7rem 1rem;font-size:.83rem;font-weight:500;text-align:center;">
+            ✅ Reçu ! Je vous réponds sous 24h.
+          </div>
+        </form>
+        <p style="font-size:.68rem;color:var(--muted);text-align:center;margin-top:.6rem;">
+          Besoin d'un devis complet ? <a href="devis.html" style="color:var(--rust);font-weight:600;">Formulaire détaillé →</a>
+        </p>
+      </div>
+
+      <!-- Panneau stats -->
+      <div id="panel-stats" style="padding:1.8rem;display:none;">
+        <div class="card-label" style="margin-bottom:.8rem;">Le coût de l'inaction</div>
+        <div class="card-title" style="color:#dc2626;margin-bottom:.8rem;">Sans site, vous perdez des clients <em>chaque jour</em></div>
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-n">76%</div>
+            <div class="stat-l">des artisans sans site perdent des clients face à des concurrents en ligne</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n" style="color:#22c55e;">+40%</div>
+            <div class="stat-l">de contacts en plus avec un site professionnel bien référencé</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n">97%</div>
+            <div class="stat-l">des clients googlènt un artisan avant de l'appeler</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n" style="color:#22c55e;">5j</div>
+            <div class="stat-l">et votre site est en ligne — c'est aussi simple que ça</div>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat-n" style="color:#22c55e;">+40%</div>
-          <div class="stat-l">de contacts en plus avec un site professionnel bien référencé</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n">97%</div>
-          <div class="stat-l">des clients googl·ent un artisan avant de l'appeler</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n" style="color:#22c55e;">5j</div>
-          <div class="stat-l">et votre site est en ligne — c'est aussi simple que ça</div>
-        </div>
+        <a class="btn-dark" href="#contact" onclick="switchTab('form')" style="display:block;text-align:center;margin-top:1.2rem;">Je veux mon site →</a>
       </div>
     </div>
+
     <div class="badge-row">
       <span class="badge" style="background:#fef9c3;border-color:#fde047;color:#854d0e;">⭐ 5/5 sur Google</span>
       <span class="badge">Design sur-mesure</span>
@@ -1709,7 +1776,15 @@ footer a:hover { color:var(--rust); }
   <div class="about-grid">
 
     <div class="about-visual">
-      <div class="about-avatar"><i class="fa-solid fa-user" style="font-size:4rem;color:var(--rust);"></i></div>
+      <div class="about-avatar" style="position:relative;cursor:pointer;" title="Remplacez par votre vraie photo !">
+        <!-- 👉 Pour ajouter ta photo : remplace la balise ci-dessous par <img src="ta-photo.jpg" alt="Clément Treboutte" style="width:100%;height:100%;object-fit:cover;"> -->
+        <i class="fa-solid fa-user" style="font-size:4rem;color:var(--rust);"></i>
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(13,27,42,.85),transparent);padding:1rem .8rem .7rem;text-align:center;">
+          <div style="color:white;font-size:.78rem;font-weight:600;">Clément Treboutte</div>
+          <div style="color:rgba(255,255,255,.6);font-size:.68rem;">Créateur de sites web · Amiens</div>
+        </div>
+        <div style="position:absolute;top:.8rem;right:.8rem;background:rgba(249,115,22,.9);color:white;font-size:.6rem;font-weight:700;padding:.2rem .5rem;letter-spacing:.06em;">DISPONIBLE</div>
+      </div>
       <div class="about-quote">
         <blockquote>"Un bon site, c'est votre meilleur commercial — disponible 24h/24, 7j/7."</blockquote>
         <cite>— Ma vision du web pour les artisans</cite>
@@ -2106,9 +2181,55 @@ window.addEventListener('DOMContentLoaded', function() {
   /* ── BARRE URGENCE — PLACES RESTANTES ── */
   var spotsEl = document.getElementById('urgency-spots');
   if (spotsEl) {
-    // Simulate remaining spots (you can replace with real data)
     var remaining = 3;
     spotsEl.textContent = remaining + ' place' + (remaining > 1 ? 's' : '') + ' restante' + (remaining > 1 ? 's' : '');
+  }
+
+  /* ── ONGLETS HERO ── */
+  window.switchTab = function(tab) {
+    var pf = document.getElementById('panel-form');
+    var ps = document.getElementById('panel-stats');
+    var tf = document.getElementById('tab-form');
+    var ts = document.getElementById('tab-stats');
+    if (!pf) return;
+    if (tab === 'form') {
+      pf.style.display = 'block'; ps.style.display = 'none';
+      tf.style.background = 'var(--rust)'; tf.style.color = 'white';
+      ts.style.background = 'var(--white)'; ts.style.color = 'var(--muted)';
+    } else {
+      ps.style.display = 'block'; pf.style.display = 'none';
+      ts.style.background = 'var(--rust)'; ts.style.color = 'white';
+      tf.style.background = 'var(--white)'; tf.style.color = 'var(--muted)';
+    }
+  };
+
+  /* ── FORMULAIRE HERO AJAX ── */
+  var heroForm = document.getElementById('hero-form');
+  if (heroForm) {
+    heroForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('hero-submit');
+      var success = document.getElementById('hero-success');
+      btn.textContent = 'Envoi en cours…';
+      btn.disabled = true;
+      fetch(heroForm.action, {
+        method: 'POST',
+        body: new FormData(heroForm),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(r) {
+        if (r.ok) {
+          heroForm.reset();
+          success.style.display = 'block';
+          btn.style.display = 'none';
+        } else {
+          btn.textContent = 'Erreur — réessayez';
+          btn.disabled = false;
+        }
+      }).catch(function() {
+        btn.textContent = 'Erreur — réessayez';
+        btn.disabled = false;
+      });
+    });
   }
 
   /* ── HAMBURGER NAV ── */
@@ -2296,4 +2417,5 @@ window.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
