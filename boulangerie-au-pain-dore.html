@@ -162,6 +162,18 @@ footer { background:var(--ink); padding:3rem 5%; display:grid; grid-template-col
   .savoirfaire, .commande { padding:4rem 5%; }
 }
 </style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17973874474">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17973874474');
+</script>
+
 </head>
 <body>
 
@@ -437,5 +449,4 @@ var row = document.getElementById('day-' + today);
 if (row) row.classList.add('today-row');
 </script>
 </body>
-
 </html>
