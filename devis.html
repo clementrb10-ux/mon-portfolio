@@ -453,7 +453,7 @@ footer a {
   </div>
 
   <div class="form-card">
-    <form class="devis-form" action="https://formspree.io/f/xeelprwa" method="POST">
+    <form class="devis-form" action="https://formspree.io/f/mbdablgr" method="POST">
 
       <!-- Infos personnelles -->
       <div class="form-section-title">
@@ -722,7 +722,7 @@ footer a {
   <span>© 2025 — SiteWeb-Artisan.fr · Étudiant Bac Pro CIEL</span>
   <span>
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:.3rem;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-    clementrb10@gmail.com
+    <a href="mailto:contact.sitewebartisan@gmail.com">contact.sitewebartisan@gmail.com</a>
   </span>
 </footer>
 
@@ -773,7 +773,7 @@ footer a {
     </div>
 
     <p style="font-size:.77rem;color:var(--muted);text-align:center;margin-top:1.2rem;">
-      Questions ? <a href="mailto:clementrb10@gmail.com" style="color:var(--rust);">clementrb10@gmail.com</a> · <a href="tel:+33641099850" style="color:var(--rust);">06 41 09 98 50</a>
+      Questions ? <a href="mailto:contact.sitewebartisan@gmail.com" style="color:var(--rust);">contact.sitewebartisan@gmail.com</a> · <a href="tel:+33641099850" style="color:var(--rust);">06 41 09 98 50</a>
     </p>
   </div>
 </div>
@@ -911,17 +911,17 @@ document.addEventListener('DOMContentLoaded', function() {
       method:'POST',
       body: data,
       headers: { 'Accept': 'application/json' }
-    })
-    .then(function(r) {
-      if (r.ok) {
+    }).then(function(response) {
+      if (response.ok) {
+        btn.textContent = 'Demande envoyée !';
         showPaymentPage();
       } else {
         btn.textContent = 'Erreur — réessayez';
         btn.disabled = false;
       }
-    })
-    .catch(function() {
-      showPaymentPage();
+    }).catch(function() {
+      btn.textContent = 'Erreur — réessayez';
+      btn.disabled = false;
     });
   });
 
@@ -929,4 +929,3 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
-
