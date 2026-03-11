@@ -412,7 +412,8 @@ footer a {
 </style>
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17973874474"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17973874474">
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -437,7 +438,7 @@ footer a {
     Gratuit &amp; Sans engagement
   </span>
   <h1>Demandez votre<br><em>devis sur-mesure</em></h1>
-  <p>Décrivez votre projet en quelques minutes. Je vous réponds sous 24h avec une proposition personnalisée et un tarif adapté.</p>
+  <p>Décrivez votre projet en quelques minutes. Je vous réponds sous 24h avec une proposition personnalisée.</p>
 </div>
 
 <!-- FORM WRAP -->
@@ -530,59 +531,10 @@ footer a {
 
       <hr class="form-divider">
 
-      <!-- Pack -->
-      <div class="form-section-title">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c0-1.1.9-2 2.5-2s2.5.9 2.5 2-1.1 1.5-2.5 2-2.5.9-2.5 2 .9 2 2.5 2 2.5-.9 2.5-2"/></svg>
-        Choisissez votre formule
-      </div>
-      <input type="hidden" name="pack" id="pack-hidden">
       <input type="hidden" name="abonnement" id="abo-hidden" value="Aucune maintenance">
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
-
-        <div class="pack-card" id="card-starter" onclick="selectPack('starter')">
-          <span class="pack-badge" style="background:rgba(14,165,233,.12);color:var(--rust);">Essentiel</span>
-          <div class="pack-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--rust)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
-          </div>
-          <div class="pack-name">Formule Starter</div>
-          <div class="pack-price">249€</div>
-          <div class="pack-desc">Site 1 page · Design sur-mesure</div>
-          <ul>
-            <li><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="var(--rust)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg> Site vitrine 1 page responsive</li>
-            <li><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="var(--rust)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg> Design personnalisé</li>
-            <li><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="var(--rust)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg> Formulaire de contact</li>
-            <li><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="var(--rust)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg> Google Maps intégré</li>
-            <li><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="var(--rust)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg> Livraison 5–7 jours</li>
-          </ul>
-          <div class="pack-btn" id="btn-starter">Choisir ce pack</div>
-        </div>
-
-        <div class="pack-card" id="card-pro" onclick="selectPack('pro')">
-          <span class="pack-badge" style="background:linear-gradient(90deg,var(--gold),var(--indigo));color:white;">
-            <svg width="11" height="11" viewBox="0 0 14 13" fill="white"><path d="M7 0L8.57 4.84H14L9.71 7.85L11.28 12.69L7 9.69L2.72 12.69L4.29 7.85L0 4.84H5.43Z"/></svg>
-            Populaire
-          </span>
-          <div class="pack-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--indigo)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="12"/><line x1="2" y1="14" x2="22" y2="14"/></svg>
-          </div>
-          <div class="pack-name">Formule Pro</div>
-          <div class="pack-price">399€</div>
-          <div class="pack-desc">Site multi-pages · Tout inclus</div>
-          <ul>
-            <li><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="var(--rust)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg> Jusqu'à 5 pages</li>
-            <li><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="var(--rust)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg> Blog / Actualités</li>
-            <li><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="var(--rust)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg> Galerie photos</li>
-            <li><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="var(--rust)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg> SEO optimisé</li>
-            <li><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="var(--rust)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg> Livraison 7–10 jours</li>
-          </ul>
-          <div class="pack-btn" id="btn-pro">Choisir ce pack</div>
-        </div>
-
-      </div>
-
       <!-- Section maintenance -->
-      <div id="abo-section">
+      <div id="abo-section" style="display:block;">
         <div class="form-section-title" style="margin-top:1.6rem;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94L5.87 21.49a2.12 2.12 0 01-3-3l7.57-7.57a6 6 0 017.94-7.94L14.7 6.3z"/></svg>
           Maintenance <span style="font-size:.75rem;color:var(--muted);font-weight:400;">(optionnel)</span>
@@ -602,7 +554,7 @@ footer a {
 
           <div class="abo-card" id="abo-mensuel-card" onclick="selectAbo('mensuel')">
             <div class="abo-name">Mensuel</div>
-            <div class="abo-price">29€<span style="font-size:.7rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:400;-webkit-text-fill-color:var(--muted);background:none;">/mois</span></div>
+            <div class="abo-price" style="font-size:1rem;">Sur devis</div>
             <div class="abo-desc">Sans engagement</div>
             <div class="abo-selected-label" id="chk-mensuel">
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
@@ -616,7 +568,7 @@ footer a {
               2 mois offerts
             </span>
             <div class="abo-name">Annuel</div>
-            <div class="abo-price">290€<span style="font-size:.7rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:400;-webkit-text-fill-color:var(--muted);background:none;">/an</span></div>
+            <div class="abo-price" style="font-size:1rem;">Sur devis</div>
             <div class="abo-desc">Meilleure offre</div>
             <div class="abo-selected-label" id="chk-annuel">
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
@@ -698,6 +650,20 @@ footer a {
             SEO / Référencement
           </label>
         </div>
+        <div class="feature-option">
+          <input type="checkbox" id="f9" name="feature_domaine" value="Oui">
+          <label for="f9">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+            Nom de domaine
+          </label>
+        </div>
+        <div class="feature-option">
+          <input type="checkbox" id="f10" name="feature_hebergement" value="Oui">
+          <label for="f10">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            Hébergement &amp; mise en ligne
+          </label>
+        </div>
       </div>
 
       <hr class="form-divider">
@@ -733,18 +699,16 @@ footer a {
   <span>© 2025 — SiteWeb-Artisan.fr · Étudiant Bac Pro CIEL</span>
   <span>
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:.3rem;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-    <a href="mailto:contact.sitewebartisan@gmail.com">contact.sitewebartisan@gmail.com</a>
+    <a href="/cdn-cgi/l/email-protection#781b141d151d160c0a1a4948381f15191114561b1715" style="color:var(--rust);"><span class="__cf_email__" data-cfemail="12717e777f777c666070232252757f737b7e3c717d7f">[email&#160;protected]</span></a>
   </span>
 </footer>
 
-<!-- PAGE PAIEMENT -->
+<!-- PAGE CONFIRMATION -->
 <div id="payment-page">
   <div style="max-width:560px;margin:0 auto;padding:5rem 2rem 4rem;">
-
     <button class="pay-back-btn" onclick="document.getElementById('payment-page').style.display='none';document.body.style.overflow='';">
       ← Modifier ma sélection
     </button>
-
     <div style="text-align:center;margin-bottom:2rem;">
       <div style="margin-bottom:1rem;">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="display:inline-block;">
@@ -752,50 +716,26 @@ footer a {
           <polyline points="18,33 27,42 46,22" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--ink);margin-bottom:.5rem;">Devis envoyé !<br>Finalisez votre commande</h2>
-      <p style="font-size:.88rem;color:var(--muted);line-height:1.7;">Votre demande a bien été transmise. Réglez maintenant pour réserver votre créneau.</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--ink);margin-bottom:.5rem;">Demande envoyée !</h2>
+      <p style="font-size:.88rem;color:var(--muted);line-height:1.7;">Votre demande a bien été transmise. Je vous réponds sous 24h avec un tarif personnalisé.</p>
     </div>
-
     <div id="pay-items" style="display:flex;flex-direction:column;gap:.9rem;margin-bottom:1.4rem;"></div>
-
-    <div style="background:linear-gradient(135deg,rgba(14,165,233,.08),rgba(99,102,241,.08));border:1.5px solid rgba(14,165,233,.25);padding:1.2rem 1.4rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1.4rem;">
-      <span style="font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:.4rem;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        Total à payer
-      </span>
-      <span id="pay-total"></span>
-    </div>
-
-    <div id="pay-btns" style="display:flex;flex-direction:column;gap:.8rem;margin-bottom:1.4rem;"></div>
-
-    <p style="font-size:.77rem;color:var(--muted);text-align:center;line-height:1.7;">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-      Paiement 100% sécurisé via <strong>Stripe</strong> · CB, Visa, Mastercard<br>Je n'ai jamais accès à vos coordonnées bancaires.
-    </p>
-
-    <div style="background:white;border:1px solid var(--warm);padding:1.3rem 1.4rem;margin-top:1.3rem;">
-      <div style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rust);margin-bottom:.9rem;display:flex;align-items:center;gap:.4rem;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
-        Après le paiement
-      </div>
-      <div style="display:flex;gap:.8rem;align-items:flex-start;font-size:.83rem;color:var(--muted);margin-bottom:.55rem;"><span style="background:linear-gradient(135deg,var(--rust),var(--indigo));color:white;border-radius:50%;width:20px;height:20px;min-width:20px;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;">1</span><span>Je reçois votre demande et vous contacte sous 24h</span></div>
-      <div style="display:flex;gap:.8rem;align-items:flex-start;font-size:.83rem;color:var(--muted);margin-bottom:.55rem;"><span style="background:linear-gradient(135deg,var(--rust),var(--indigo));color:white;border-radius:50%;width:20px;height:20px;min-width:20px;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;">2</span><span>On définit ensemble le design et les contenus</span></div>
+    <div style="background:white;border:1px solid var(--warm);padding:1.3rem 1.4rem;margin-top:.5rem;">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rust);margin-bottom:.9rem;">La suite</div>
+      <div style="display:flex;gap:.8rem;align-items:flex-start;font-size:.83rem;color:var(--muted);margin-bottom:.55rem;"><span style="background:linear-gradient(135deg,var(--rust),var(--indigo));color:white;border-radius:50%;width:20px;height:20px;min-width:20px;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;">1</span><span>Je reçois votre demande et vous envoie un devis sous 24h</span></div>
+      <div style="display:flex;gap:.8rem;align-items:flex-start;font-size:.83rem;color:var(--muted);margin-bottom:.55rem;"><span style="background:linear-gradient(135deg,var(--rust),var(--indigo));color:white;border-radius:50%;width:20px;height:20px;min-width:20px;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;">2</span><span>On valide ensemble le devis et le design</span></div>
       <div style="display:flex;gap:.8rem;align-items:flex-start;font-size:.83rem;color:var(--muted);"><span style="background:linear-gradient(135deg,var(--rust),var(--indigo));color:white;border-radius:50%;width:20px;height:20px;min-width:20px;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;">3</span><span>Je démarre la création de votre site !</span></div>
     </div>
-
     <p style="font-size:.77rem;color:var(--muted);text-align:center;margin-top:1.2rem;">
-      Questions ? <a href="mailto:contact.sitewebartisan@gmail.com" style="color:var(--rust);">contact.sitewebartisan@gmail.com</a> · <a href="tel:+33641099850" style="color:var(--rust);">06 41 09 98 50</a>
+      Questions ? <a href="/cdn-cgi/l/email-protection#791a151c141c170d0b1b4849391e14181015571a1614" style="color:var(--rust);"><span class="__cf_email__" data-cfemail="3a59565f575f544e48580b0a7a5d575b535614595557">[email&#160;protected]</span></a> · <a href="tel:+33641099850" style="color:var(--rust);">06 41 09 98 50</a>
     </p>
   </div>
 </div>
 
 <script>
-var selPack = null;
 var selAbo  = 'none';
 
 var STRIPE = {
-  starter: { url:'https://buy.stripe.com/test_4gMbIU2i1fFO1MC3Q75Ne06', label:'Payer 249€ — Formule Starter', bg:'linear-gradient(90deg,#0ea5e9,#6366f1)' },
-  pro:     { url:'https://buy.stripe.com/test_3cI28kf4NctCgHw72j5Ne07', label:'Payer 399€ — Formule Pro',     bg:'linear-gradient(90deg,#6366f1,#0ea5e9)' },
   mensuel: { url:'https://buy.stripe.com/test_aFadR27Cl8dm62ScmD5Ne03', label:"S'abonner — 29€/mois (Mensuel)", bg:'linear-gradient(90deg,#f97316,#e55300)' },
   annuel:  { url:'https://buy.stripe.com/test_3cIeV67ClgJSgHwaev5Ne02', label:"S'abonner — 290€/an (Annuel)",   bg:'linear-gradient(90deg,#f97316,#e55300)' }
 };
@@ -803,36 +743,14 @@ var STRIPE = {
 var BTN_STYLE = 'display:flex;align-items:center;justify-content:center;gap:.6rem;text-decoration:none;color:white;padding:1.1rem 2rem;font-size:.9rem;font-weight:600;font-family:inherit;transition:transform .2s;width:100%;box-sizing:border-box;';
 var LOCK_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>';
 
-function selectPack(pack) {
-  selPack = pack;
-  document.getElementById('pack-hidden').value = pack === 'starter' ? 'Starter 249€' : 'Professionnel 399€';
 
-  var cs = document.getElementById('card-starter');
-  var cp = document.getElementById('card-pro');
-  var bs = document.getElementById('btn-starter');
-  var bp = document.getElementById('btn-pro');
-
-  if (pack === 'starter') {
-    cs.classList.add('selected');
-    cp.classList.remove('selected');
-  } else {
-    cp.classList.add('selected');
-    cs.classList.remove('selected');
-  }
-
-  document.getElementById('abo-section').style.display = 'block';
-  selectAbo('none');
-  setTimeout(function() {
-    document.getElementById('abo-section').scrollIntoView({behavior:'smooth', block:'nearest'});
-  }, 50);
-}
 
 function selectAbo(abo) {
   selAbo = abo;
   document.getElementById('abo-hidden').value =
     abo === 'none'    ? 'Aucune maintenance' :
-    abo === 'mensuel' ? 'Maintenance mensuelle 29€/mois' :
-                        'Maintenance annuelle 290€/an';
+    abo === 'mensuel' ? 'Maintenance mensuelle' :
+                        'Maintenance annuelle';
 
   ['none','mensuel','annuel'].forEach(function(a) {
     var card = document.getElementById('abo-' + a + '-card');
@@ -848,18 +766,14 @@ function selectAbo(abo) {
 }
 
 function updateRecap() {
-  if (!selPack) return;
-  var pp = selPack === 'starter' ? 249 : 399;
-  var pn = selPack === 'starter' ? 'Formule Starter' : 'Formule Pro';
-  var lines = '<div style="display:flex;justify-content:space-between;font-size:.87rem;margin-bottom:.3rem;"><span>' + pn + '</span><strong>' + pp + '€</strong></div>';
-  var total = pp + '€';
+  var lines = '';
+  var total = 'Sur devis';
   if (selAbo === 'mensuel') {
-    lines += '<div style="display:flex;justify-content:space-between;font-size:.87rem;"><span>Maintenance Mensuelle</span><strong>29€/mois</strong></div>';
-    total += ' + 29€/mois';
-  }
-  if (selAbo === 'annuel') {
-    lines += '<div style="display:flex;justify-content:space-between;font-size:.87rem;"><span>Maintenance Annuelle</span><strong>290€/an</strong></div>';
-    total += ' + 290€/an';
+    lines += '<div style="display:flex;justify-content:space-between;font-size:.87rem;"><span>Maintenance Mensuelle</span><strong>Sur devis</strong></div>';
+  } else if (selAbo === 'annuel') {
+    lines += '<div style="display:flex;justify-content:space-between;font-size:.87rem;"><span>Maintenance Annuelle</span><strong>Sur devis</strong></div>';
+  } else {
+    lines += '<div style="display:flex;justify-content:space-between;font-size:.87rem;"><span>Aucune maintenance</span><strong>—</strong></div>';
   }
   document.getElementById('recap-lines').innerHTML = lines;
   document.getElementById('recap-total').textContent = total;
@@ -867,31 +781,18 @@ function updateRecap() {
 }
 
 function showPaymentPage() {
-  var pp = selPack === 'starter' ? 249 : 399;
-  var pn = selPack === 'starter' ? 'Formule Starter' : 'Formule Pro';
-  var ps = selPack === 'starter' ? 'Site vitrine 1 page responsive' : 'Site multi-pages complet';
-
   var ITEM = 'background:white;border:1.5px solid #cfe8fa;padding:1.1rem 1.3rem;display:flex;justify-content:space-between;align-items:center;';
-  var PRICE = 'font-family:Playfair Display,serif;font-size:1.3rem;font-weight:900;background:linear-gradient(90deg,#0ea5e9,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space:nowrap;flex-shrink:0;';
 
-  var itemsH = '<div style="' + ITEM + '"><div><div style="font-weight:600;font-size:.9rem;">' + pn + '</div><div style="font-size:.72rem;color:#4a6580;margin-top:.12rem;">' + ps + '</div></div><div style="' + PRICE + '">' + pp + '€</div></div>';
-  var btnsH  = '<a href="' + STRIPE[selPack].url + '" target="_blank" rel="noopener" style="' + BTN_STYLE + 'background:' + STRIPE[selPack].bg + '">' + LOCK_SVG + ' ' + STRIPE[selPack].label + '</a>';
-  var total  = pp + '€';
+  var itemsH = '<div style="' + ITEM + '"><div style="font-weight:600;font-size:.9rem;">Votre projet sur-mesure</div></div>';
 
   if (selAbo === 'mensuel') {
-    itemsH += '<div style="' + ITEM + '"><div><div style="font-weight:600;font-size:.9rem;">Maintenance Mensuelle</div><div style="font-size:.72rem;color:#4a6580;margin-top:.12rem;">Sans engagement · résiliable à tout moment</div></div><div style="' + PRICE + '">29€<small style="font-size:.55em;font-weight:400">/mois</small></div></div>';
-    btnsH  += '<a href="' + STRIPE.mensuel.url + '" target="_blank" rel="noopener" style="' + BTN_STYLE + 'background:' + STRIPE.mensuel.bg + '">' + LOCK_SVG + ' ' + STRIPE.mensuel.label + '</a>';
-    total  += ' + 29€/mois';
+    itemsH += '<div style="' + ITEM + '"><div style="font-weight:600;font-size:.9rem;">+ Maintenance Mensuelle</div></div>';
   }
   if (selAbo === 'annuel') {
-    itemsH += '<div style="' + ITEM + '"><div><div style="font-weight:600;font-size:.9rem;">Maintenance Annuelle</div><div style="font-size:.72rem;color:#4a6580;margin-top:.12rem;">2 mois offerts · paiement unique annuel</div></div><div style="' + PRICE + '">290€<small style="font-size:.55em;font-weight:400">/an</small></div></div>';
-    btnsH  += '<a href="' + STRIPE.annuel.url + '" target="_blank" rel="noopener" style="' + BTN_STYLE + 'background:' + STRIPE.annuel.bg + '">' + LOCK_SVG + ' ' + STRIPE.annuel.label + '</a>';
-    total  += ' + 290€/an';
+    itemsH += '<div style="' + ITEM + '"><div style="font-weight:600;font-size:.9rem;">+ Maintenance Annuelle</div></div>';
   }
 
   document.getElementById('pay-items').innerHTML = itemsH;
-  document.getElementById('pay-btns').innerHTML  = btnsH;
-  document.getElementById('pay-total').textContent = total;
 
   var pp2 = document.getElementById('payment-page');
   pp2.style.display = 'block';
@@ -907,24 +808,19 @@ document.addEventListener('DOMContentLoaded', function() {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    if (!selPack) {
-      alert('Veuillez choisir une formule (Starter ou Pro) avant de continuer.');
-      document.getElementById('card-starter').scrollIntoView({behavior:'smooth', block:'center'});
-      return;
-    }
 
     var btn = form.querySelector('.btn-submit');
     btn.textContent = 'Envoi en cours…';
     btn.disabled = true;
 
-    var data = new FormData(form);
+        var data = new FormData(form);
     fetch(form.action, {
       method:'POST',
       body: data,
       headers: { 'Accept': 'application/json' }
     }).then(function(response) {
       if (response.ok) {
-        btn.textContent = 'Demande envoyée !';
+        btn.textContent = 'Envoyé !';
         showPaymentPage();
       } else {
         btn.textContent = 'Erreur — réessayez';
@@ -940,4 +836,3 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
-
